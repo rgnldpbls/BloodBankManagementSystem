@@ -108,6 +108,7 @@ namespace BBMS.Controllers
         }
 
         // GET: BloodDonate/Edit/5
+        [Authorize(Roles = "SuperAdmin,DonorAdmin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -120,7 +121,14 @@ namespace BBMS.Controllers
             {
                 return NotFound();
             }
-            ViewData["DonorId"] = new SelectList(_context.Donor, "Id", "Id", bloodDonate.DonorId);
+            if (User.IsInRole("SuperAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+            }
+            else if (User.IsInRole("DonorAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
+            }
             return View(bloodDonate);
         }
 
@@ -129,6 +137,7 @@ namespace BBMS.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "SuperAdmin,DonorAdmin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Age,BloodType,UnitNo,Status,DonateDate,DonatePlace,DonorId")] BloodDonate bloodDonate)
         {
             if (id != bloodDonate.Id)
@@ -156,11 +165,11 @@ namespace BBMS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DonorId"] = new SelectList(_context.Donor, "Id", "Id", bloodDonate.DonorId);
             return View(bloodDonate);
         }
 
         // GET: BloodDonate/Delete/5
+        [Authorize(Roles = "SuperAdmin,DonorAdmin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -175,7 +184,14 @@ namespace BBMS.Controllers
             {
                 return NotFound();
             }
-
+            if (User.IsInRole("SuperAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+            }
+            else if (User.IsInRole("DonorAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
+            }
             return View(bloodDonate);
         }
 

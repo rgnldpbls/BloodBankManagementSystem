@@ -1,4 +1,4 @@
-﻿@{
+﻿@* @{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
@@ -11,7 +11,6 @@
         <a type="submit" class="btn btn-success" asp-controller="Physician" asp-action="Login">Physician Login</a>
     </div>
 </div> *@
-
 <div class="login-main">
     <div class="select-your-account">Select your account type to log in.</div>
     <b class="welcome-user">Welcome, User!</b>
@@ -42,162 +41,162 @@
 </div>
 
 <style>
-    .select-your-account {
-        position: absolute;
-        top: 27%;
-        left: 22.5%;
-        font-size: 35px;
-        text-align: justify;
-        display: flex;
-        align-items: center;
-        width: 676px;
-        height: 48px;
+.select-your-account {
+    position: absolute;
+    top: 100px;
+    left: 48px;
+    font-size: 35px;
+    text-align: justify;
+    display: flex;
+    align-items: center;
+    width: 676px;
+    height: 48px;
+}
+
+.welcome-user {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    font-size: 60px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 1000px;
+    height: 80px;
+}
+
+.login-donor-box {
+    position: absolute;
+    top: 150px;
+    left: 100px%;
+    border-radius: 11px;
+    background-color: #ffa1af;
+    width: 200px;
+    height: 70px;
+}
+
+.donor {
+    position: absolute;
+    top: 170px;
+    left: 40px;
+    display: flex;
+    color: #000;
+}
+
+    .donor a.btn.Donor {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        font-size: 24px;
+        text-decoration: none;
+        color: inherit;
+        position: inherit;
     }
 
-    .welcome-user {
-        position: absolute;
-        top: 4%;
-        left: 2%;
-        font-size: 120px;
-        display: flex;
-        text-align: left;
-        align-items: flex-start;
-        width: 1000px;
-        height: 48px;
+.login-physician-box {
+    position: absolute;
+    top: 56%;
+    left: 27%;
+    border-radius: 11px;
+    background-color: #ffa1af;
+    width: 400px;
+    height: 100px;
+}
+
+.physician {
+    position: absolute;
+    top: 57.2%;
+    left: 29.7%;
+    display: flex;
+    color: #000;
+}
+
+    .physician a.btn.Physician {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+        text-decoration: none;
+        color: inherit;
+        position: inherit;
     }
 
-    .login-donor-box {
-        position: absolute;
-        top: 40%;
-        left: 27%;
-        border-radius: 11px;
-        background-color: #ffa1af;
-        width: 400px;
-        height: 100px;
+.login-admin-box {
+    position: absolute;
+    top: 72%;
+    left: 27%;
+    border-radius: 11px;
+    background-color: #ffa1af;
+    width: 400px;
+    height: 100px;
+}
+
+.admin {
+    position: absolute;
+    top: 73%;
+    left: 31.9%;
+    display: flex;
+    color: #000;
+}
+
+    .admin a.btn.Admin {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+        text-decoration: none;
+        color: inherit;
+        position: inherit;
     }
 
-    .donor {
-        position: absolute;
-        top: 41%;
-        left: 31.3%;
-        display: flex;
-        color: #000;
+.view-report {
+    letter-spacing: 0.5px;
+    line-height: 20px;
+    mix-blend-mode: normal;
+    position: absolute;
+    top: 90%;
+    left: 32%;
+    box-shadow: 0px 2px 1px rgba(64, 72, 82, 0.05);
+    border-radius: 5px;
+    background-color: #fbfc;
+    border: 0.5px solid #dde4f0;
+    border-color: gray;
+    box-sizing: border-box;
+    width: 200px;
+    height: 60px;
+    display: flex;
+    padding: 6px 21px;
+    font-size: 16px;
+    align-content: center;
+}
+
+    .view-report a.btn.Back {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5vw;
+        font-weight: 550;
+        left: 22%;
+        top: 0.3%;
+        text-decoration: none;
+        color: darkred;
+        position: inherit;
     }
 
-        .donor a.btn.Donor {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            font-size: 2.5vw;
-            text-decoration: none;
-            color: inherit;
-            position: inherit;
-        }
+.rectangle-icon {
+    position: absolute;
+    top: 0.1%;
+    left: 65%;
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
+}
 
-    .login-physician-box {
-        position: absolute;
-        top: 56%;
-        left: 27%;
-        border-radius: 11px;
-        background-color: #ffa1af;
-        width: 400px;
-        height: 100px;
-    }
-
-    .physician {
-        position: absolute;
-        top: 57.2%;
-        left: 29.7%;
-        display: flex;
-        color: #000;
-    }
-
-        .physician a.btn.Physician {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            font-size: 2.5vw;
-            text-decoration: none;
-            color: inherit;
-            position: inherit;
-        }
-
-    .login-admin-box {
-        position: absolute;
-        top: 72%;
-        left: 27%;
-        border-radius: 11px;
-        background-color: #ffa1af;
-        width: 400px;
-        height: 100px;
-    }
-
-    .admin {
-        position: absolute;
-        top: 73%;
-        left: 31.9%;
-        display: flex;
-        color: #000;
-    }
-
-        .admin a.btn.Admin {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            font-size: 2.5vw;
-            text-decoration: none;
-            color: inherit;
-            position: inherit;
-        }
-
-    .view-report {
-        letter-spacing: 0.5px;
-        line-height: 20px;
-        mix-blend-mode: normal;
-        position: absolute;
-        top: 90%;
-        left: 32%;
-        box-shadow: 0px 2px 1px rgba(64, 72, 82, 0.05);
-        border-radius: 5px;
-        background-color: #fbfc;
-        border: 0.5px solid #dde4f0;
-        border-color: gray;
-        box-sizing: border-box;
-        width: 200px;
-        height: 60px;
-        display: flex;
-        padding: 6px 21px;
-        font-size: 16px;
-        align-content: center;
-    }
-
-        .view-report a.btn.Back {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5vw;
-            font-weight: 550;
-            left: 22%;
-            top: 0.3%;
-            text-decoration: none;
-            color: darkred;
-            position: inherit;
-        }
-
-    .rectangle-icon {
-        position: absolute;
-        top: 0.1%;
-        left: 60%;
-        width: 800px;
-        height: 728px;
-        object-fit: cover;
-    }
-
-    .login-main {
-        width: 1920px;
-        position: absolute;
-        background-color: #ebebeb;
-        height: 720px;
-        display: flex;
-        overflow: hidden;
-        text-align: center;
-        font-size: 28px;
-        color: #000;
-        font-family: Montserrat;
-    }
+.login-main {
+    width: 100%;
+    position: relative;
+    background-color: #ebebeb;
+    height: 600px;
+    display: flex;
+    overflow: hidden;
+    text-align: center;
+    font-size: 28px;
+    color: #000;
+    font-family: Montserrat;
+}
 </style>
