@@ -19,7 +19,7 @@
                     <a href="@Url.Action("#", "#")" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
                        <span>BloodStocks</span>
                     </a>
-                    <a href="@Url.Action("#", "#")" class="list-group-item list-group-item-action py-2 ripple">
+                    <a href="@Url.Action("PendingDonate", "BloodDonate")" class="list-group-item list-group-item-action py-2 ripple">
                         <span>Pending Donations</span>
                     </a>
                     <a href="@Url.Action("#", "#")" class="list-group-item list-group-item-action py-2 ripple">
@@ -31,7 +31,7 @@
                     <a href="@Url.Action("Index", "Physician")" class="list-group-item list-group-item-action py-2 ripple">
                        <span>Physicians</span>
                     </a>
-                    <a href="@Url.Action("#", "#")" class="list-group-item list-group-item-action py-2 ripple">
+                    <a href="@Url.Action("Index", "BloodDonate")" class="list-group-item list-group-item-action py-2 ripple">
                        <span>Donations History</span>
                     </a>
                     <a href="@Url.Action("#", "#")" class="list-group-item list-group-item-action py-2 ripple">
@@ -55,7 +55,7 @@
                 </button>
 
                 <!-- Brand -->
-                <a class="navbar-brand" href="@Url.Action("Profile", "Admin", new {id = "3"})">
+                <a class="navbar-brand" href="@Url.Action("Profile", "Admin", new {id = ViewBag.AccountId})">
                     <img src="~/Assets/logo.png" height="50" style="align-items:center;" alt="Logo" 
                          loading="lazy" />
                 </a>

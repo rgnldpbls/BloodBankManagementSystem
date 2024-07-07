@@ -16,5 +16,6 @@ namespace BBMS.Data
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Donor> Donor { get; set; }
         public DbSet<Physician> Physician { get; set; }
+        public DbSet<BloodDonate> BloodDonate { get; set; }
     }
 }

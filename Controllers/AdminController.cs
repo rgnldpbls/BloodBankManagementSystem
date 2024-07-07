@@ -11,16 +11,19 @@ using BBMS.ViewModels;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using BBMS.Services;
 
 namespace BBMS.Controllers
 {
     public class AdminController : Controller
     {
         private readonly BloodBankDBContext _context;
+        private readonly AccountService _accountService;
 
-        public AdminController(BloodBankDBContext context)
+        public AdminController(BloodBankDBContext context, AccountService accountService)
         {
             _context = context;
+            _accountService = accountService;
         }
 
         [AllowAnonymous]
@@ -118,6 +121,7 @@ namespace BBMS.Controllers
         // GET: Admin
         public async Task<IActionResult> Index()
         {
+            ViewData["AccountId"] = GetUserId();
             return View(await _context.Admins.ToListAsync());
         }
 
@@ -297,6 +301,7 @@ namespace BBMS.Controllers
             {
                 return Forbid(); // 403 Forbidden
             }
+            ViewData["AccountId"] = curUserId;
             return View(admin);
         }
     }

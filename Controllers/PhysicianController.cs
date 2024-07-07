@@ -13,16 +13,19 @@ using BBMS.ViewModels;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
+using BBMS.Services;
 
 namespace BBMS.Controllers
 {
     public class PhysicianController : Controller
     {
         private readonly BloodBankDBContext _context;
+        private readonly AccountService _accountService;
 
-        public PhysicianController(BloodBankDBContext context)
+        public PhysicianController(BloodBankDBContext context, AccountService accountService)
         {
             _context = context;
+            _accountService = accountService;
         }
 
         [AllowAnonymous]
@@ -79,6 +82,11 @@ namespace BBMS.Controllers
             else if (User.IsInRole("PhysicianAdmin"))
             {
                 ViewData["Layout"] = "~/Views/Shared/_LayoutPhysicianAdmin.cshtml";
+            }
+            int? accountId = _accountService.GetAccountId();
+            if (accountId.HasValue)
+            {
+                ViewData["AccountId"] = accountId.ToString();
             }
             return View(await _context.Physician.ToListAsync());
         }
@@ -278,6 +286,7 @@ namespace BBMS.Controllers
             {
                 return Forbid(); // 403 Forbidden
             }
+            ViewData["AccountId"] = curUserId;
             return View(physician);
         }
 

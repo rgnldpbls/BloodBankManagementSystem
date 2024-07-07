@@ -58,6 +58,34 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Regienald Pueblos/source/repos/BBMS/Views/BloodDonate/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2REb25hdGVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Regienald Pueblos/source/repos/BBMS/Views/BloodDonate/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2REb25hdGVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Regienald Pueblos/source/repos/BBMS/Views/BloodDonate/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2REb25hdGVcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Regienald Pueblos/source/repos/BBMS/Views/BloodDonate/DonateLogs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2REb25hdGVcRG9uYXRlTG9ncy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Regienald Pueblos/source/repos/BBMS/Views/BloodDonate/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2REb25hdGVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Regienald Pueblos/source/repos/BBMS/Views/BloodDonate/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2REb25hdGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Regienald Pueblos/source/repos/BBMS/Views/BloodDonate/PendingDonate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2REb25hdGVcUGVuZGluZ0RvbmF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Regienald Pueblos/source/repos/BBMS/Views/Donor/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9ub3JcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -96,10 +124,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Regienald Pueblos/source/repos/BBMS/Views/Home/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Regienald Pueblos/source/repos/BBMS/Views/Home/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Regienald Pueblos/source/repos/BBMS/Views/Physician/Create.cshtml]
@@ -161,6 +185,10 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/Regienald Pueblos/source/repos/BBMS/Views/Home/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-n2cfhfqze3
+
+[C:/Users/Regienald Pueblos/source/repos/BBMS/Views/Home/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-ig6ufd6o6e
 
 [C:/Users/Regienald Pueblos/source/repos/BBMS/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s

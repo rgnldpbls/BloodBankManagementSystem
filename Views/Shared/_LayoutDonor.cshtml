@@ -16,10 +16,10 @@
         <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
             <div class="position-sticky">
                 <div class="list-group list-group-flush mx-3 mt-4">
-                    <a href="@Url.Action("#", "#")" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+                    <a href="@Url.Action("Create", "BloodDonate")" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
                         <span>Make Blood Donation</span>
                     </a>
-                    <a href="@Url.Action("#", "#")" class="list-group-item list-group-item-action py-2 ripple">
+                    <a href="@Url.Action("DonateLogs", "BloodDonate")" class="list-group-item list-group-item-action py-2 ripple">
                         <span>Donation History</span>
                     </a>
                 </div>
@@ -37,7 +37,7 @@
                 </button>
 
                 <!-- Brand -->
-                <a class="navbar-brand">
+                <a class="navbar-brand" href="@Url.Action("Profile", "Donor", new {id = ViewBag.AccountId})">
                     <img src="~/Assets/logo.png" height="50" style="align-items:center;" alt="Logo"
                          loading="lazy" />
                 </a>

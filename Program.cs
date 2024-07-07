@@ -2,12 +2,15 @@
 using Microsoft.Extensions.DependencyInjection;
 using BBMS.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using BBMS.Services;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<BloodBankDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("BloodBankDBContext") ?? throw new InvalidOperationException("Connection string 'BloodBankDBContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<AccountService>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
 {

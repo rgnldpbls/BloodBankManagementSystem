@@ -1,6 +1,8 @@
-﻿namespace BBMS.Models
+﻿using BBMS.Models;
+
+namespace BBMS.ViewModels
 {
-    public class BloodDonate
+    public class BloodDonateIndexVM
     {
         public int Id { get; set; }
         public required int Age { get; set; }
@@ -11,5 +13,6 @@
         public required string DonatePlace { get; set; }
         public int DonorId { get; set; }
         public Donor? Donor { get; set; }
+        public string DonorName { get; set; }
     }
 }

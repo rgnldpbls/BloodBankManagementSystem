@@ -3,10 +3,158 @@
    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-<div class="container">
-    <h2>Select Register</h2>
-    <div class="register-buttons">
-        <a type="submit" class="btn btn-secondary" asp-controller="Donor" asp-action="Create">Donor Registration</a>
-        <a type="submit" class="btn btn-success" asp-controller="Physician" asp-action="Create">Physician Registration</a>
+<div class="register-main">
+    <div class="select-your-account">Select an account type to create.</div>
+    <b class="welcome-user">Welcome, User!</b>
+    <div class="register-donor-box">
     </div>
+    <div class="donor">
+        <a type="submit" class="btn Donor" asp-controller="Donor" asp-action="Create">DONOR</a>
+    </div>
+    <div class="register-physician-box">
+    </div>
+    <div class="physician">
+        <a type="submit" class="btn Physician" asp-controller="Physician" asp-action="Create">PHYSICIAN</a>
+    </div>
+    <div class="button">
+        <div class="view-report">
+            <a class="btn Back" asp-area="" asp-controller="Home" asp-action="Index">Back</a>
+        </div>
+    </div>
+    <img class="rectangle-icon" alt="" src="~/Assets/pic.png">
 </div>
+<style>
+    .select-your-account {
+        position: absolute;
+        top: 27%;
+        left: 23%;
+        font-size: 35px;
+        text-align: justify;
+        display: flex;
+        align-items: center;
+        width: 676px;
+        height: 48px;
+    }
+
+    .welcome-user {
+        position: absolute;
+        top: 4%;
+        left: 2%;
+        font-size: 120px;
+        display: flex;
+        text-align: left;
+        align-items: flex-start;
+        width: 1000px;
+        height: 48px;
+    }
+
+    .register-donor-box {
+        position: absolute;
+        top: 40%;
+        left: 27%;
+        border-radius: 11px;
+        background-color: #ffa1af;
+        width: 400px;
+        height: 100px;
+    }
+
+    .donor {
+        position: absolute;
+        top: 41%;
+        left: 31.3%;
+        display: flex;
+        color: #000;
+    }
+
+        .donor a.btn.Donor {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 2.5vw;
+            text-decoration: none;
+            color: inherit;
+            position: inherit;
+        }
+
+    .physician {
+        position: absolute;
+        top: 63.5%;
+        left: 29.7%;
+        display: flex;
+        color: #000;
+    }
+
+        .physician a.btn.Physician {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 2.5vw;
+            text-decoration: none;
+            color: inherit;
+            position: inherit;
+        }
+
+    .register-physician-box {
+        position: absolute;
+        top: 62%;
+        left: 27%;
+        border-radius: 11px;
+        background-color: #ffa1af;
+        width: 400px;
+        height: 100px;
+    }
+
+    .view-report {
+        letter-spacing: 0.5px;
+        line-height: 20px;
+        mix-blend-mode: normal;
+        position: absolute;
+        top: 85%;
+        left: 32%;
+        box-shadow: 0px 2px 1px rgba(64, 72, 82, 0.05);
+        border-radius: 5px;
+        background-color: #fbfc;
+        border: 0.5px solid #dde4f0;
+        border-color: gray;
+        box-sizing: border-box;
+        width: 200px;
+        height: 60px;
+        display: flex;
+        padding: 6px 21px;
+        font-size: 16px;
+        align-content: center;
+    }
+
+        .view-report a.btn.Back {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5vw;
+            font-weight: 550;
+            left: 22%;
+            top: 0.3%;
+            text-decoration: none;
+            color: darkred;
+            position: inherit;
+        }
+
+    .rectangle-icon {
+        position: absolute;
+        top: 0.1%;
+        left: 60%;
+        width: 800px;
+        height: 728px;
+        object-fit: cover;
+    }
+
+    .register-main {
+        width: 1920px;
+        position: absolute;
+        background-color: #ebebeb;
+        height: 720px;
+        display: flex;
+        overflow: hidden;
+        text-align: center;
+        font-size: 28px;
+        color: #000;
+        font-family: Montserrat;
+    }
+</style>
+   
+

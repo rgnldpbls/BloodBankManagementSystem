@@ -259,3 +259,5 @@ C:\Users\Regienald Pueblos\source\repos\BBMS\obj\Debug\net8.0\scopedcss\Views\Sh
 C:\Users\Regienald Pueblos\source\repos\BBMS\obj\Debug\net8.0\scopedcss\Views\Home\About.cshtml.rz.scp.css
 C:\Users\Regienald Pueblos\source\repos\BBMS\obj\Debug\net8.0\scopedcss\Views\Shared\_LayoutDonor.cshtml.rz.scp.css
 C:\Users\Regienald Pueblos\source\repos\BBMS\obj\Debug\net8.0\scopedcss\Views\Shared\_LayoutPhysician.cshtml.rz.scp.css
+C:\Users\Regienald Pueblos\source\repos\BBMS\obj\Debug\net8.0\BBMS.sourcelink.json
+C:\Users\Regienald Pueblos\source\repos\BBMS\obj\Debug\net8.0\scopedcss\Views\Home\Register.cshtml.rz.scp.css
