@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="container">
+    <h2>Select Login</h2>
+    <div class="login-buttons">
+        <a type="submit" class="btn btn-primary" asp-controller="Admin" asp-action="Login">Admin Login</a>
+        <a type="submit" class="btn btn-secondary" asp-controller="Donor" asp-action="Login">Donor Login</a>
+        <a type="submit" class="btn btn-success" asp-controller="Physician" asp-action="Login">Physician Login</a>
+    </div>
+</div>

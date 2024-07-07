@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\physiciancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\physiciancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\donorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\donorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PhysicianController.cs",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\PhysicianController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PhysicianController.cs",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\PhysicianController.cs",
+              "RelativeToolTip": "Controllers\\PhysicianController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD0BAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T00:59:04.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DonorController.cs",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\DonorController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DonorController.cs",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\DonorController.cs",
+              "RelativeToolTip": "Controllers\\DonorController.cs",
+              "ViewState": "AQIAADABAAAAAAAAAAAAADABAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-06T08:36:58.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Controllers\\AdminController.cs",
+              "ViewState": "AQIAAAwBAAAAAAAAAAAAABsBAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-06T16:58:46.241Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

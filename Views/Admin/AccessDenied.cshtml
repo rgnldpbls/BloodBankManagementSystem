@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "AccessDenied";
+    Layout = "~/Views/Shared/_LayoutNoNavFooter.cshtml";
+}
+
+<div class="message">
+    <h1>Access to this page is restricted</h1>
+    <p>Please check with the site admin if you believe this is a mistake.</p>
+</div>
+
+<style>
+* {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #EEE, #AAA);
+}
+
+h1 {
+  margin: 40px 0 20px;
+}
+</style>

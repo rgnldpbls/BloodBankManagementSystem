@@ -1,0 +1,154 @@
+﻿@model BBMS.Models.Donor
+
+@{
+    ViewData["Title"] = "Donor Registration";
+    Layout = ViewData["Layout"]?.ToString();
+}
+<section class="h-100 bg-dark">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card card-registration my-4">
+                    <div class="row g-0">
+                        <div class="col-xl-6 d-none d-xl-block">
+                            <img src="~/Assets//pic.png"
+                                 alt="Sample photo" class="img-fluid"
+                                 style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="card-body p-md-5 text-black">
+                                <h3 class="mb-5 text-uppercase">Donor Registration Form</h3>
+                                 <form asp-action="Create">
+                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div data-mdb-input-init class="form-outline">
+                                            <label asp-for="Name" class="form-label"></label>
+                                            <input asp-for="Name" type="text" class="form-control form-control-lg" />
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                    <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+
+                                        <label class="mb-0 me-4" asp-for="Sex">Sex:</label>
+
+                                        <div class="form-check form-check-inline mb-0 me-4">
+                                            <input asp-for="Sex" class="form-check-input" type="radio" 
+                                                       value="Male" />
+                                            <label class="form-check-label" >Male</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline mb-0 me-4">
+                                            <input asp-for="Sex" class="form-check-input" type="radio" 
+                                                       value="Female" />
+                                            <label class="form-check-label">Female</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline mb-0">
+                                            <input asp-for="Sex" class="form-check-input" type="radio"
+                                                       value="Other" checked/>
+                                            <label class="form-check-label" >Other</label>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div data-mdb-input-init class="form-outline">
+                                                <label asp-for="City" class="form-label" ></label>
+                                                <input asp-for="City" type="text" class="form-control form-control-lg" />
+                                                <span asp-validation-for="City" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <label asp-for="Region" class="form-label">Region:</label>
+                                            <select data-mdb-select-init asp-for="Region">
+                                                <option value="" disabled>-- Select an option --</option>
+                                                <option value="NCR">National Capital Region</option>
+                                                <option value="CAR">Cordillera Administrative Region</option>
+                                                <option value="Region 1">Region I</option>
+                                                <option value="Region 2">Region II</option>
+                                                <option value="Region 3">Region III</option>
+                                                <option value="Region 4-A">Region IV-A</option>
+                                                <option value="Region 4-B">Region IV-B</option>
+                                                <option value="Region 5">Region V</option>
+                                                <option value="Region 6">Region VI</option>
+                                                <option value="Region 7">Region VII</option>
+                                                <option value="Region 8">Region VIII</option>
+                                                <option value="Region 9">Region IX</option>
+                                                <option value="Region 10">Region X</option>
+                                                <option value="Region 11">Region XI</option>
+                                                <option value="Region 12">Region XII</option>
+                                                <option value="Region 13">Region XIII</option>
+                                                <option value="BARMM">Bangsamoro</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div data-mdb-input-init class="form-outline">
+                                            <label asp-for="Birthdate" class="form-label"></label>
+                                            <input asp-for="Birthdate" type="date" class="form-control form-control-lg" />
+                                            <span asp-validation-for="Birthdate" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div data-mdb-input-init class="form-outline">
+                                            <label asp-for="ContactNo" class="form-label" >Contact Number:</label>
+                                            <input asp-for="ContactNo" class="form-control form-control-lg" />
+                                            <span asp-validation-for="ContactNo" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <label asp-for="Email" class="form-label" ></label>
+                                    <input asp-for="Email" type="email" class="form-control form-control-lg" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <label asp-for="Password" class="form-label"></label>
+                                    <input asp-for="Password" type="password" class="form-control form-control-lg" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <label asp-for="DateCreated" class="form-label" >Account Creation(Date Today)</label>
+                                    <input asp-for="DateCreated" type="date" class="form-control form-control-lg" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="d-flex justify-content-end pt-3">
+                                    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-lg ms-2" value="Create">Submit form</button>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<style>
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+        font-size: 1rem;
+        line-height: 2.15;
+        padding-left: .75em;
+        padding-right: .75em;
+    }
+
+    .card-registration .select-arrow {
+        top: 13px;
+    }
+</style>

@@ -1,0 +1,363 @@
+/* _content/BBMS/Views/Home/About.cshtml.rz.scp.css */
+/*@media screen and (min-width:728px) {
+    .welcome-to-our-container {
+        top: 48%;
+        left: 17%;
+        font-size: 1.6vw;
+    }
+
+    .managing-lifes-precious-container {
+        top: 25%;
+        left: 16.9%;
+        font-size: 8vw;
+    }
+
+    .eye-dropper0000-1-icon {
+        top: 25%;
+        left: 65%;
+    }
+}
+*/
+/* _content/BBMS/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-zncb196q4m] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-zncb196q4m] {
+  color: #0077cc;
+}
+
+.btn-primary[b-zncb196q4m] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-zncb196q4m], .nav-pills .show > .nav-link[b-zncb196q4m] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-zncb196q4m] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-zncb196q4m] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-zncb196q4m] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-zncb196q4m] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-zncb196q4m] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+/* _content/BBMS/Views/Shared/_LayoutDonor.cshtml.rz.scp.css */
+body[b-2vdoh3i356] {
+    background-color: #fbfbfb;
+}
+
+@media (min-width: 991.98px) {
+    main[b-2vdoh3i356] {
+        padding-left: 240px;
+    }
+}
+
+/* Sidebar */
+.sidebar[b-2vdoh3i356] {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0; /* Height of navbar */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 240px;
+    z-index: 600;
+}
+
+@media (max-width: 991.98px) {
+    .sidebar[b-2vdoh3i356] {
+        width: 100%;
+    }
+}
+
+.sidebar .active[b-2vdoh3i356] {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky[b-2vdoh3i356] {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+/* _content/BBMS/Views/Shared/_LayoutDonorAdmin.cshtml.rz.scp.css */
+body[b-7a0y4qps77] {
+    background-color: #fbfbfb;
+}
+
+@media (min-width: 991.98px) {
+    main[b-7a0y4qps77] {
+        padding-left: 240px;
+    }
+}
+
+/* Sidebar */
+.sidebar[b-7a0y4qps77] {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0; /* Height of navbar */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 240px;
+    z-index: 600;
+}
+
+@media (max-width: 991.98px) {
+    .sidebar[b-7a0y4qps77] {
+        width: 100%;
+    }
+}
+
+.sidebar .active[b-7a0y4qps77] {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky[b-7a0y4qps77] {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+/* _content/BBMS/Views/Shared/_LayoutInventoryAdmin.cshtml.rz.scp.css */
+body[b-gnqhbapkfz] {
+    background-color: #fbfbfb;
+}
+
+@media (min-width: 991.98px) {
+    main[b-gnqhbapkfz] {
+        padding-left: 240px;
+    }
+}
+
+/* Sidebar */
+.sidebar[b-gnqhbapkfz] {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0; /* Height of navbar */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 240px;
+    z-index: 600;
+}
+
+@media (max-width: 991.98px) {
+    .sidebar[b-gnqhbapkfz] {
+        width: 100%;
+    }
+}
+
+.sidebar .active[b-gnqhbapkfz] {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky[b-gnqhbapkfz] {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+/* _content/BBMS/Views/Shared/_LayoutPhysician.cshtml.rz.scp.css */
+body[b-awyzu9np9p] {
+    background-color: #fbfbfb;
+}
+
+@media (min-width: 991.98px) {
+    main[b-awyzu9np9p] {
+        padding-left: 240px;
+    }
+}
+
+/* Sidebar */
+.sidebar[b-awyzu9np9p] {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0; /* Height of navbar */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 240px;
+    z-index: 600;
+}
+
+@media (max-width: 991.98px) {
+    .sidebar[b-awyzu9np9p] {
+        width: 100%;
+    }
+}
+
+.sidebar .active[b-awyzu9np9p] {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky[b-awyzu9np9p] {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+/* _content/BBMS/Views/Shared/_LayoutPhysicianAdmin.cshtml.rz.scp.css */
+body[b-nlcan2644x] {
+    background-color: #fbfbfb;
+}
+
+@media (min-width: 991.98px) {
+    main[b-nlcan2644x] {
+        padding-left: 240px;
+    }
+}
+
+/* Sidebar */
+.sidebar[b-nlcan2644x] {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0; /* Height of navbar */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 240px;
+    z-index: 600;
+}
+
+@media (max-width: 991.98px) {
+    .sidebar[b-nlcan2644x] {
+        width: 100%;
+    }
+}
+
+.sidebar .active[b-nlcan2644x] {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky[b-nlcan2644x] {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+/* _content/BBMS/Views/Shared/_LayoutRequestV.cshtml.rz.scp.css */
+body[b-m7tuvavroe] {
+    background-color: #fbfbfb;
+}
+
+@media (min-width: 991.98px) {
+    main[b-m7tuvavroe] {
+        padding-left: 240px;
+    }
+}
+
+/* Sidebar */
+.sidebar[b-m7tuvavroe] {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0; /* Height of navbar */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 240px;
+    z-index: 600;
+}
+
+@media (max-width: 991.98px) {
+    .sidebar[b-m7tuvavroe] {
+        width: 100%;
+    }
+}
+
+.sidebar .active[b-m7tuvavroe] {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky[b-m7tuvavroe] {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+/* _content/BBMS/Views/Shared/_LayoutSuperAdmin.cshtml.rz.scp.css */
+body[b-jutirui6ix] {
+    background-color: #fbfbfb;
+}
+
+@media (min-width: 991.98px) {
+    main[b-jutirui6ix] {
+        padding-left: 240px;
+    }
+}
+
+/* Sidebar */
+.sidebar[b-jutirui6ix] {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0; /* Height of navbar */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 240px;
+    z-index: 600;
+}
+
+@media (max-width: 991.98px) {
+    .sidebar[b-jutirui6ix] {
+        width: 100%;
+    }
+}
+
+.sidebar .active[b-jutirui6ix] {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky[b-jutirui6ix] {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
