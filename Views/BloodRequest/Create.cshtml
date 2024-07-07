@@ -1,28 +1,53 @@
-﻿@model BBMS.Models.BloodDonate
+﻿@model BBMS.Models.BloodRequest
 
 @{
-    ViewData["Title"] = "Edit Details";
-    Layout = "~/Views/Shared/_LayoutDonor.cshtml";
+    ViewData["Title"] = "Request Blood";
+    Layout = "~/Views/Shared/_LayoutPhysician.cshtml";
 }
 
 <div class="container-xl px-4 mt-4">
     <div class="col-xl-8">
         <div class="card mb-4">
-            <div class="card-header">Update Details</div>
+            <div class="card-header">Request Blood</div>
             <div class="card-body">
-                <form asp-action="UpdateDetails">
+                <form asp-action="Create">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input type="hidden" asp-for="Id" />
                     <div class="row gx-3 mb-3">
                         <div class="col-md-6">
-                            <label asp-for="Age" class="small mb-1"></label>
-                            <input asp-for="Age" class="form-control" type="number" />
-                            <span asp-validation-for="Age" class="text-danger"></span>
+                            <label asp-for="PatientName" class="small mb-1"></label>
+                            <input asp-for="PatientName" class="form-control" type="text" />
+                            <span asp-validation-for="PatientName" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="PatientAge" class="small mb-1"></label>
+                            <input asp-for="PatientAge" class="form-control" type="number" />
+                            <span asp-validation-for="PatientAge" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="RequestInfo" class="small mb-1"></label>
+                        <input asp-for="RequestInfo" class="form-control" />
+                        <span asp-validation-for="RequestInfo" class="text-danger"></span>
+                    </div>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label asp-for="PatientHospital" class="small mb-1"></label>
+                            <input asp-for="PatientHospital" class="form-control" type="text">
+                            <span asp-validation-for="PatientHospital" class="text-danger"></span>
                         </div>
                         <div class="col-md-6">
                             <label asp-for="BloodType" class="small mb-1">Blood Type:</label>
-                            <input asp-for="BloodType" class="form-control" />
-                            <span asp-validation-for="BloodType" class="text-danger"></span>
+                            <select asp-for="BloodType" data-mdb-input-init class="form-control">
+                                <option value="" disabled>-- Select an option --</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row gx-3 mb-3">
@@ -32,24 +57,19 @@
                             <span asp-validation-for="UnitNo" class="text-danger"></span>
                         </div>
                         <div class="col-md-6">
-                            <label asp-for="DonateDate" class="small mb-1"></label>
-                            <input asp-for="DonateDate" class="form-control" type="date" />
-                            <span asp-validation-for="DonateDate" class="text-danger"></span>
+                            <label asp-for="RequestDate" class="small mb-1"></label>
+                            <input asp-for="RequestDate" class="form-control" type="date">
+                            <span asp-validation-for="RequestDate" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label asp-for="DonatePlace" class="small mb-1"></label>
-                        <input asp-for="DonatePlace" class="form-control" />
-                        <span asp-validation-for="DonatePlace" class="text-danger"></span>
+                        <input asp-for="Status" class="form-control" type="hidden" value="Pending" />
                     </div>
                     <div class="mb-3">
-                        <input asp-for="Status" class="form-control" type="hidden" />
+                        <input asp-for="PhysicianId" class="form-control" value="@ViewBag.PhysicianId" type="hidden" />
                     </div>
                     <div class="mb-3">
-                        <input asp-for="DonorId" class="form-control" type="hidden"/>
-                    </div>
-                    <div class="mb-3">
-                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <input type="submit" value="Create" class="btn btn-primary" />
                     </div>
                 </form>
             </div>

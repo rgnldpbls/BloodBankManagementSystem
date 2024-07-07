@@ -4,17 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;500;700&display=swap" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BBMS.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header style="font-size: 20px;">
+    <header style="font-size: 16px;">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img alt="" src="~/Assets/logo.png">
+                    <img alt="" src="~/Assets/logo.png" class="navbar-logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -23,18 +23,18 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About </a>
                         </li>
                     </ul>
                     <ul class="navbar-nav mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Register">Register</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Register">Register </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Login </a>
                         </li>
                     </ul>
                 </div>
@@ -61,12 +61,43 @@
 
 <style>
     .bbms-logo-2-1 {
-        position: absolute;
-        top: 38px;
-        left: 20px;
-        width: 324px;
-        height: 99px;
-        object-fit: cover;
+        position: relative;
+        object-fit: contain;
+        padding-right: 20%;
     }
-</style>
 
+    .navbar-logo {
+        height: 50px;
+    }
+
+    .nav-item {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        position: relative;
+        transition: color 0.3s ease;
+        font-weight: 600;
+    }
+
+        .navbar-nav .nav-item .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: #FFA1AF;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #FFA1AF !important;
+        }
+
+            .navbar-nav .nav-item .nav-link:hover::after {
+                width: 100%;
+                left: 0;
+            }
+</style>

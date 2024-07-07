@@ -1,202 +1,121 @@
-﻿@* @{
+﻿@{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-@* <div class="container">
-    <h2>Select Login</h2>
-    <div class="login-buttons">
-        <a type="submit" class="btn btn-primary" asp-controller="Admin" asp-action="Login">Admin Login</a>
-        <a type="submit" class="btn btn-secondary" asp-controller="Donor" asp-action="Login">Donor Login</a>
-        <a type="submit" class="btn btn-success" asp-controller="Physician" asp-action="Login">Physician Login</a>
-    </div>
-</div> *@
+
 <div class="login-main">
-    <div class="select-your-account">Select your account type to log in.</div>
-    <b class="welcome-user">Welcome, User!</b>
+    <div class="left-column">
+        <h1 class="welcome-user">Welcome, User!</h1>
+        <p class="select-your-account">Select your account type to login.</p>
 
-    <div class="login-donor-box">
-    </div>
-    <div class="donor">
-        <a type="submit" class="btn Donor" asp-controller="Donor" asp-action="Login">DONOR</a>
-    </div>
+        <div class="login-box">
+            <a asp-controller="Donor" asp-action="Login" class="login-btn btn Donor">Donor</a>
+        </div>
 
-    <div class="login-physician-box">
-    </div>
-    <div class="physician">
-        <a type="submit" class="btn Physician" asp-controller="Physician" asp-action="Login">PHYSICIAN</a>
-    </div>
+        <div class="login-box">
+            <a asp-controller="Physician" asp-action="Login" class="login-btn btn Physician">Physician</a>
+        </div>
 
-    <div class="login-admin-box">
-    </div>
-    <div class="admin">
-        <a type="submit" class="btn Admin" asp-controller="Admin" asp-action="Login">ADMIN</a>
-    </div>
-    <div class="button">
+        <div class="login-box">
+            <a asp-controller="Admin" asp-action="Login" class="login-btn btn Admin">Admin</a>
+        </div>
+
         <div class="view-report">
-            <a class="btn Back" asp-area="" asp-controller="Home" asp-action="Index">Back</a>
+            <a asp-controller="Home" asp-action="Index" class="btn Back">Back</a>
         </div>
     </div>
-    <img class="rectangle-icon" alt="" src="~/Assets/pic.png">
+
+    <div class="right-column">
+        <img src="~/Assets/pic.png" alt="Rectangle Icon" class="rectangle-icon">
+    </div>
 </div>
 
+
 <style>
-.select-your-account {
-    position: absolute;
-    top: 100px;
-    left: 48px;
-    font-size: 35px;
-    text-align: justify;
-    display: flex;
-    align-items: center;
-    width: 676px;
-    height: 48px;
-}
+    /* Common styles for all login boxes */
+    .login-main {
+        width: 100%;
+        height: 90vh;
+        display: flex;
+        background-color: #ebebeb;
+        font-family: Montserrat;
+        overflow: hidden;
+        border-radius: 50px;
+        box-sizing: border-box;
+    }
 
-.welcome-user {
-    position: absolute;
-    top: 30px;
-    left: 40px;
-    font-size: 60px;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    width: 1000px;
-    height: 80px;
-}
+    .left-column {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
-.login-donor-box {
-    position: absolute;
-    top: 150px;
-    left: 100px%;
-    border-radius: 11px;
-    background-color: #ffa1af;
-    width: 200px;
-    height: 70px;
-}
+    .right-column {
+        width: 40%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: stretch;
+    }
 
-.donor {
-    position: absolute;
-    top: 170px;
-    left: 40px;
-    display: flex;
-    color: #000;
-}
+    .welcome-user {
+        font-size: 48px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-    .donor a.btn.Donor {
+    .select-your-account {
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .login-box {
+        width: 150px;
+        height: 60px;
+        background-color: #ffa1af;
+        border-radius: 11px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+        .login-box:hover {
+            transform: translateY(-2px); /* Slight lift effect on hover */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+        }
+
+    .login-btn {
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
-        font-size: 24px;
+        font-size: 18px;
         text-decoration: none;
-        color: inherit;
-        position: inherit;
+        color: #000;
+        padding: 10px 20px;
     }
 
-.login-physician-box {
-    position: absolute;
-    top: 56%;
-    left: 27%;
-    border-radius: 11px;
-    background-color: #ffa1af;
-    width: 400px;
-    height: 100px;
-}
-
-.physician {
-    position: absolute;
-    top: 57.2%;
-    left: 29.7%;
-    display: flex;
-    color: #000;
-}
-
-    .physician a.btn.Physician {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: bold;
-        font-size: 30px;
-        text-decoration: none;
-        color: inherit;
-        position: inherit;
+    .view-report {
+        margin-top: 10px;
     }
 
-.login-admin-box {
-    position: absolute;
-    top: 72%;
-    left: 27%;
-    border-radius: 11px;
-    background-color: #ffa1af;
-    width: 400px;
-    height: 100px;
-}
+        .view-report a.btn.Back {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 550;
+            text-decoration: none;
+            color: darkred;
+        }
 
-.admin {
-    position: absolute;
-    top: 73%;
-    left: 31.9%;
-    display: flex;
-    color: #000;
-}
-
-    .admin a.btn.Admin {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: bold;
-        font-size: 30px;
-        text-decoration: none;
-        color: inherit;
-        position: inherit;
+    .rectangle-icon {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
     }
 
-.view-report {
-    letter-spacing: 0.5px;
-    line-height: 20px;
-    mix-blend-mode: normal;
-    position: absolute;
-    top: 90%;
-    left: 32%;
-    box-shadow: 0px 2px 1px rgba(64, 72, 82, 0.05);
-    border-radius: 5px;
-    background-color: #fbfc;
-    border: 0.5px solid #dde4f0;
-    border-color: gray;
-    box-sizing: border-box;
-    width: 200px;
-    height: 60px;
-    display: flex;
-    padding: 6px 21px;
-    font-size: 16px;
-    align-content: center;
-}
-
-    .view-report a.btn.Back {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1.5vw;
-        font-weight: 550;
-        left: 22%;
-        top: 0.3%;
-        text-decoration: none;
-        color: darkred;
-        position: inherit;
     }
-
-.rectangle-icon {
-    position: absolute;
-    top: 0.1%;
-    left: 65%;
-    width: 600px;
-    height: 600px;
-    object-fit: cover;
-}
-
-.login-main {
-    width: 100%;
-    position: relative;
-    background-color: #ebebeb;
-    height: 600px;
-    display: flex;
-    overflow: hidden;
-    text-align: center;
-    font-size: 28px;
-    color: #000;
-    font-family: Montserrat;
-}
 </style>

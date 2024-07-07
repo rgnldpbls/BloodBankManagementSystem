@@ -94,6 +94,14 @@ namespace BBMS.Controllers
         [Authorize(Roles = "SuperAdmin,DonorAdmin")]
         public async Task<IActionResult> Details(int? id)
         {
+            if (User.IsInRole("SuperAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+            }
+            else if (User.IsInRole("DonorAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
+            }
             if (id == null)
             {
                 return NotFound();
@@ -104,14 +112,6 @@ namespace BBMS.Controllers
             if (donor == null)
             {
                 return NotFound();
-            }
-            if (User.IsInRole("SuperAdmin"))
-            {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
-            }
-            else if (User.IsInRole("DonorAdmin"))
-            {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
             }
             return View(donor);
         }
@@ -158,6 +158,14 @@ namespace BBMS.Controllers
         [Authorize(Roles = "SuperAdmin,DonorAdmin")]
         public async Task<IActionResult> Edit(int? id)
         {
+            if (User.IsInRole("SuperAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+            }
+            else if (User.IsInRole("DonorAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
+            }
             if (id == null)
             {
                 return NotFound();
@@ -167,14 +175,6 @@ namespace BBMS.Controllers
             if (donor == null)
             {
                 return NotFound();
-            }
-            if (User.IsInRole("SuperAdmin"))
-            {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
-            }
-            else if (User.IsInRole("DonorAdmin"))
-            {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
             }
             return View(donor);
         }
@@ -221,6 +221,14 @@ namespace BBMS.Controllers
         [Authorize(Roles = "SuperAdmin,DonorAdmin")]
         public async Task<IActionResult> Delete(int? id)
         {
+            if (User.IsInRole("SuperAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+            }
+            else if (User.IsInRole("DonorAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
+            }
             if (id == null)
             {
                 return NotFound();
@@ -231,14 +239,6 @@ namespace BBMS.Controllers
             if (donor == null)
             {
                 return NotFound();
-            }
-            if (User.IsInRole("SuperAdmin"))
-            {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
-            }
-            else if (User.IsInRole("DonorAdmin"))
-            {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
             }
             return View(donor);
         }
@@ -271,7 +271,12 @@ namespace BBMS.Controllers
         [Authorize(Roles = "Donor")]
         public async Task<IActionResult> Profile(string? id)
         {
-            if(id == null)
+            var curUserId = GetUserId();
+            if (id != curUserId)
+            {
+                return Forbid(); // 403 Forbidden
+            }
+            if (id == null)
             {
                 return NotFound();
             }
@@ -279,11 +284,6 @@ namespace BBMS.Controllers
             if(donor == null)
             {
                 return NotFound();
-            }
-            var curUserId = GetUserId();
-            if (id != curUserId)
-            {
-                return Forbid(); // 403 Forbidden
             }
             ViewData["AccountId"] = curUserId;
             return View(donor);

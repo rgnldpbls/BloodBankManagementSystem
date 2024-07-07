@@ -90,6 +90,38 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2REb25hdGVcVXBkYXRlRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Regienald Pueblos/source/repos/BBMS/Views/BloodRequest/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2RSZXF1ZXN0XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Regienald Pueblos/source/repos/BBMS/Views/BloodRequest/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2RSZXF1ZXN0XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Regienald Pueblos/source/repos/BBMS/Views/BloodRequest/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2RSZXF1ZXN0XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Regienald Pueblos/source/repos/BBMS/Views/BloodRequest/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2RSZXF1ZXN0XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Regienald Pueblos/source/repos/BBMS/Views/BloodRequest/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2RSZXF1ZXN0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Regienald Pueblos/source/repos/BBMS/Views/BloodRequest/PendingRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2RSZXF1ZXN0XFBlbmRpbmdSZXF1ZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Regienald Pueblos/source/repos/BBMS/Views/BloodRequest/RequestLogs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2RSZXF1ZXN0XFJlcXVlc3RMb2dzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Regienald Pueblos/source/repos/BBMS/Views/BloodRequest/UpdateDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvb2RSZXF1ZXN0XFVwZGF0ZURldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Regienald Pueblos/source/repos/BBMS/Views/Donor/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9ub3JcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

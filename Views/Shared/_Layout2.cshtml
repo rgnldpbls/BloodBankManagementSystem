@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="~/BBMS.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header style="font-size: 20px;">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <header style="font-size: 16px;">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" style="box-shadow: 0 2px 4px rgba(0,0,0,0.1)" ;>
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img alt="" src="~/Assets/logo.png">
+                    <img src="~/Assets/logo.png" class="navbar-logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -22,12 +22,6 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                        </li>
-                        <li class="nav-item">
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav mx-lg-auto">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
@@ -57,8 +51,49 @@
 </body>
 </html>
 <style>
+    .bbms-logo-2-1 {
+        position: relative;
+        object-fit: contain;
+        padding-right: 20%;
+    }
+
+    .navbar-logo {
+        height: 50px;
+    }
+
+    .nav-item {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        position: relative;
+        transition: color 0.3s ease;
+        font-weight: 600;
+    }
+
+        .navbar-nav .nav-item .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: #FFA1AF;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #FFA1AF !important;
+        }
+
+            .navbar-nav .nav-item .nav-link:hover::after {
+                width: 100%;
+                left: 0;
+            }
+
     html, body {
-        height: 95%;
+        height: 100%;
         margin: 0;
     }
 
@@ -67,25 +102,14 @@
         flex-direction: column;
     }
 
-    .container-fluid {
-        flex: 1;
-    }
-
     .main-content {
-        flex: 1;
+        flex: 1 0 auto;
     }
 
-    footer {
+    .footer {
         flex-shrink: 0;
-        align-items: flex-start;
-    }
-
-    .bbms-logo-2-1 {
-        position: absolute;
-        top: 38px;
-        left: 20px;
-        width: 324px;
-        height: 99px;
-        object-fit: cover;
+        background-color: #f8f9fa;
+        padding: 1rem 0;
+        margin-top: auto;
     }
 </style>

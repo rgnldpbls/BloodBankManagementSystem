@@ -7,56 +7,44 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BBMS.Data;
 using BBMS.Models;
-using Microsoft.AspNetCore.Authorization;
 using BBMS.Services;
-using BBMS.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BBMS.Controllers
 {
-    public class BloodDonateController : Controller
+    public class BloodRequestController : Controller
     {
         private readonly BloodBankDBContext _context;
         private readonly AccountService _accountService;
 
-        public BloodDonateController(BloodBankDBContext context, AccountService accountService)
+        public BloodRequestController(BloodBankDBContext context, AccountService accountService)
         {
             _context = context;
             _accountService = accountService;
         }
 
-        // GET: BloodDonate
-        [Authorize(Roles = "SuperAdmin,DonorAdmin")]
+        // GET: BloodRequest
+        [Authorize(Roles = "SuperAdmin,PhysicianAdmin")]
         public async Task<IActionResult> Index()
         {
             if (User.IsInRole("SuperAdmin"))
             {
                 ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
             }
-            else if (User.IsInRole("DonorAdmin"))
+            else if (User.IsInRole("PhysicianAdmin"))
             {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
+                ViewData["Layout"] = "~/Views/Shared/_LayoutPhysicianAdmin.cshtml";
             }
             int? accountId = _accountService.GetAccountId();
             if (accountId.HasValue)
             {
                 ViewData["AccountId"] = accountId.ToString();
             }
-            var bloodDonations = await _context.BloodDonate.Include(b => b.Donor).Select(b => new BloodDonateIndexVM
-            {
-                Id = b.Id,
-                Age = b.Age,
-                BloodType = b.BloodType,
-                UnitNo = b.UnitNo,
-                Status = b.Status,
-                DonateDate = b.DonateDate,
-                DonatePlace = b.DonatePlace,
-                DonorId = b.DonorId,
-                DonorName = b.Donor.Name
-            }).Where(b => b.Status != "Pending").ToListAsync();
-            return View(bloodDonations);
+            var bloodBankDBContext = _context.BloodRequest.Include(b => b.Physician).Where(b => b.Status != "Pending");
+            return View(await bloodBankDBContext.ToListAsync());
         }
 
-        // GET: BloodDonate/Details/5
+        // GET: BloodRequest/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -64,81 +52,81 @@ namespace BBMS.Controllers
                 return NotFound();
             }
 
-            var bloodDonate = await _context.BloodDonate
-                .Include(b => b.Donor)
+            var bloodRequest = await _context.BloodRequest
+                .Include(b => b.Physician)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (bloodDonate == null)
+            if (bloodRequest == null)
             {
                 return NotFound();
             }
 
-            return View(bloodDonate);
+            return View(bloodRequest);
         }
 
-        // GET: BloodDonate/Create
-        [Authorize(Roles = "Donor")]
+        // GET: BloodRequest/Create
+        [Authorize(Roles = "Physician")]
         public IActionResult Create()
         {
             int? accountId = _accountService.GetAccountId();
             if (accountId.HasValue)
             {
-                ViewBag.DonorId = Convert.ToInt32(accountId.Value);
+                ViewBag.PhysicianId = Convert.ToInt32(accountId.Value);
                 ViewData["AccountId"] = accountId.ToString();
             }
             return View();
         }
 
-        // POST: BloodDonate/Create
+        // POST: BloodRequest/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Donor")]
-        public async Task<IActionResult> Create([Bind("Id,Age,BloodType,UnitNo,Status,DonateDate,DonatePlace,DonorId")] BloodDonate bloodDonate)
+        [Authorize(Roles = "Physician")]
+        public async Task<IActionResult> Create([Bind("Id,PatientName,PatientAge,RequestInfo,PatientHospital,BloodType,UnitNo,Status,RequestDate,PhysicianId")] BloodRequest bloodRequest)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(bloodDonate);
+                _context.Add(bloodRequest);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(DonateLogs));
+                return RedirectToAction(nameof(RequestLogs));
             }
-            return View(bloodDonate);
+            return View(bloodRequest);
         }
 
-        // GET: BloodDonate/Edit/5
-        [Authorize(Roles = "SuperAdmin,DonorAdmin")]
+        // GET: BloodRequest/Edit/5
+        [Authorize(Roles = "SuperAdmin,PhysicianAdmin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (User.IsInRole("SuperAdmin"))
             {
                 ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
             }
-            else if (User.IsInRole("DonorAdmin"))
+            else if (User.IsInRole("PhysicianAdmin"))
             {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
+                ViewData["Layout"] = "~/Views/Shared/_LayoutPhysicianAdmin.cshtml";
             }
             if (id == null)
             {
                 return NotFound();
             }
 
-            var bloodDonate = await _context.BloodDonate.FindAsync(id);
-            if (bloodDonate == null)
+            var bloodRequest = await _context.BloodRequest.FindAsync(id);
+            if (bloodRequest == null)
             {
                 return NotFound();
             }
-            return View(bloodDonate);
+            return View(bloodRequest);
         }
 
-        // POST: BloodDonate/Edit/5
+        // POST: BloodRequest/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "SuperAdmin,DonorAdmin")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Age,BloodType,UnitNo,Status,DonateDate,DonatePlace,DonorId")] BloodDonate bloodDonate)
+        [Authorize(Roles = "SuperAdmin,PhysicianAdmin")]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,PatientName,PatientAge,RequestInfo,PatientHospital,BloodType,UnitNo,Status,RequestDate,PhysicianId")] BloodRequest bloodRequest)
         {
-            if (id != bloodDonate.Id)
+            if (id != bloodRequest.Id)
             {
                 return NotFound();
             }
@@ -147,12 +135,12 @@ namespace BBMS.Controllers
             {
                 try
                 {
-                    _context.Update(bloodDonate);
+                    _context.Update(bloodRequest);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BloodDonateExists(bloodDonate.Id))
+                    if (!BloodRequestExists(bloodRequest.Id))
                     {
                         return NotFound();
                     }
@@ -163,112 +151,102 @@ namespace BBMS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(bloodDonate);
+            return View(bloodRequest);
         }
 
-        // GET: BloodDonate/Delete/5
-        [Authorize(Roles = "SuperAdmin,DonorAdmin,Donor")]
+        // GET: BloodRequest/Delete/5
+        [Authorize(Roles = "SuperAdmin,PhysicianAdmin,Physician")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (User.IsInRole("SuperAdmin"))
             {
                 ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
             }
-            else if (User.IsInRole("DonorAdmin"))
+            else if (User.IsInRole("PhysicianAdmin"))
             {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
+                ViewData["Layout"] = "~/Views/Shared/_LayoutPhysicianAdmin.cshtml";
             }
-            else if (User.IsInRole("Donor"))
+            else if (User.IsInRole("Physician"))
             {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutDonor.cshtml";
+                ViewData["Layout"] = "~/Views/Shared/_LayoutPhysician.cshtml";
             }
             if (id == null)
             {
                 return NotFound();
             }
 
-            var bloodDonate = await _context.BloodDonate
-                .Include(b => b.Donor)
+            var bloodRequest = await _context.BloodRequest
+                .Include(b => b.Physician)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (bloodDonate == null)
+            if (bloodRequest == null)
             {
                 return NotFound();
             }
-            return View(bloodDonate);
+
+            return View(bloodRequest);
         }
 
-        // POST: BloodDonate/Delete/5
+        // POST: BloodRequest/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "SuperAdmin,DonorAdmin,Donor")]
+        [Authorize(Roles = "SuperAdmin,PhysicianAdmin,Physician")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var bloodDonate = await _context.BloodDonate.FindAsync(id);
-            if (bloodDonate != null)
+            var bloodRequest = await _context.BloodRequest.FindAsync(id);
+            if (bloodRequest != null)
             {
-                _context.BloodDonate.Remove(bloodDonate);
+                _context.BloodRequest.Remove(bloodRequest);
             }
 
             await _context.SaveChangesAsync();
-            if(User.IsInRole("SuperAdmin") || User.IsInRole("DonorAdmin"))
+            if (User.IsInRole("SuperAdmin") || User.IsInRole("PhysicianAdmin"))
             {
                 return RedirectToAction(nameof(Index));
             }
             else
             {
-                return RedirectToAction(nameof(DonateLogs));
+                return RedirectToAction(nameof(RequestLogs));
             }
         }
 
-        private bool BloodDonateExists(int id)
+        private bool BloodRequestExists(int id)
         {
-            return _context.BloodDonate.Any(e => e.Id == id);
+            return _context.BloodRequest.Any(e => e.Id == id);
         }
 
-        [Authorize(Roles = "Donor")]
-        public async Task<IActionResult> DonateLogs()
+        [Authorize(Roles = "Physician")]
+        public async Task<IActionResult> RequestLogs()
         {
             int? accountId = _accountService.GetAccountId();
             if (accountId.HasValue)
             {
                 ViewData["AccountId"] = accountId.ToString();
             }
-            var bloodBankDBContext = _context.BloodDonate.Include(b => b.Donor).Where(b => b.DonorId == accountId.Value);
+            var bloodBankDBContext = _context.BloodRequest.Include(b => b.Physician).Where(b => b.PhysicianId == accountId.Value);
             return View(await bloodBankDBContext.ToListAsync());
         }
 
-        [Authorize(Roles = "SuperAdmin,DonorAdmin")]
-        public async Task<IActionResult> PendingDonate()
+        [Authorize(Roles = "SuperAdmin,PhysicianAdmin")]
+        public async Task<IActionResult> PendingRequest()
         {
             if (User.IsInRole("SuperAdmin"))
             {
                 ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
             }
-            else if (User.IsInRole("DonorAdmin"))
+            else if (User.IsInRole("PhysicianAdmin"))
             {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
+                ViewData["Layout"] = "~/Views/Shared/_LayoutPhysicianAdmin.cshtml";
             }
             int? accountId = _accountService.GetAccountId();
             if (accountId.HasValue)
             {
                 ViewData["AccountId"] = accountId.ToString();
             }
-            var bloodDonations = await _context.BloodDonate.Include(b => b.Donor).Select(b => new BloodDonateIndexVM
-            {
-                Id = b.Id,
-                Age = b.Age,
-                BloodType = b.BloodType,
-                UnitNo = b.UnitNo,
-                Status = b.Status,
-                DonateDate = b.DonateDate,
-                DonatePlace = b.DonatePlace,
-                DonorId = b.DonorId,
-                DonorName = b.Donor.Name
-            }).Where(b => b.Status == "Pending").ToListAsync();
-            return View(bloodDonations);
+            var bloodBankDBContext = _context.BloodRequest.Include(b => b.Physician).Where(b => b.Status == "Pending");
+            return View(await bloodBankDBContext.ToListAsync());
         }
 
-        [Authorize(Roles = "Donor")]
+        [Authorize(Roles = "Physician")]
         public async Task<IActionResult> UpdateDetails(int? id)
         {
             if (id == null)
@@ -276,20 +254,20 @@ namespace BBMS.Controllers
                 return NotFound();
             }
 
-            var bloodDonate = await _context.BloodDonate.FindAsync(id);
-            if (bloodDonate == null)
+            var bloodRequest = await _context.BloodRequest.FindAsync(id);
+            if (bloodRequest == null)
             {
                 return NotFound();
             }
-            return View(bloodDonate);
+            return View(bloodRequest);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Donor")]
-        public async Task<IActionResult> UpdateDetails(int id, [Bind("Id,Age,BloodType,UnitNo,Status,DonateDate,DonatePlace,DonorId")] BloodDonate bloodDonate)
+        [Authorize(Roles = "Physician")]
+        public async Task<IActionResult> UpdateDetails(int id, [Bind("Id,PatientName,PatientAge,RequestInfo,PatientHospital,BloodType,UnitNo,Status,RequestDate,PhysicianId")] BloodRequest bloodRequest)
         {
-            if (id != bloodDonate.Id)
+            if (id != bloodRequest.Id)
             {
                 return NotFound();
             }
@@ -298,12 +276,12 @@ namespace BBMS.Controllers
             {
                 try
                 {
-                    _context.Update(bloodDonate);
+                    _context.Update(bloodRequest);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BloodDonateExists(bloodDonate.Id))
+                    if (!BloodRequestExists(bloodRequest.Id))
                     {
                         return NotFound();
                     }
@@ -312,9 +290,9 @@ namespace BBMS.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(DonateLogs));
+                return RedirectToAction(nameof(RequestLogs));
             }
-            return View(bloodDonate);
+            return View(bloodRequest);
         }
     }
 }

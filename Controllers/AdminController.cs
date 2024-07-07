@@ -271,6 +271,31 @@ namespace BBMS.Controllers
         [Authorize(Roles = "SuperAdmin,DonorAdmin,PhysicianAdmin,InventoryAdmin,RequestValidatorAdmin")]
         public async Task<IActionResult> Profile(string? id)
         {
+            if (User.IsInRole("SuperAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+            }
+            else if (User.IsInRole("DonorAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
+            }
+            else if (User.IsInRole("PhysicianAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutPhysicianAdmin.cshtml";
+            }
+            else if (User.IsInRole("InventoryAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutInventoryAdmin.cshtml";
+            }
+            else if (User.IsInRole("RequestValidatorAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutRequestV.cshtml";
+            }
+            var curUserId = GetUserId();
+            if (id != curUserId)
+            {
+                return Forbid(); // 403 Forbidden
+            }
             if (id == null)
             {
                 return NotFound();
@@ -279,27 +304,6 @@ namespace BBMS.Controllers
             if (admin == null)
             {
                 return NotFound();
-            }
-            if (User.IsInRole("SuperAdmin"))
-            {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
-            } else if (User.IsInRole("DonorAdmin"))
-            {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
-            } else if (User.IsInRole("PhysicianAdmin"))
-            {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutPhysicianAdmin.cshtml";
-            } else if (User.IsInRole("InventoryAdmin"))
-            {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutInventoryAdmin.cshtml";
-            } else if (User.IsInRole("RequestValidatorAdmin"))
-            {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutRequestV.cshtml";
-            }
-            var curUserId = GetUserId();
-            if (id != curUserId)
-            {
-                return Forbid(); // 403 Forbidden
             }
             ViewData["AccountId"] = curUserId;
             return View(admin);
