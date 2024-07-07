@@ -101,7 +101,7 @@ namespace BBMS.Controllers
             {
                 _context.Add(bloodDonate);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(DonateLogs));
             }
            /* ViewData["DonorId"] = new SelectList(_context.Donor, "Id", "Id", bloodDonate.DonorId);*/
             return View(bloodDonate);
@@ -169,7 +169,7 @@ namespace BBMS.Controllers
         }
 
         // GET: BloodDonate/Delete/5
-        [Authorize(Roles = "SuperAdmin,DonorAdmin")]
+        [Authorize(Roles = "SuperAdmin,DonorAdmin,Donor")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -191,6 +191,9 @@ namespace BBMS.Controllers
             else if (User.IsInRole("DonorAdmin"))
             {
                 ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
+            }else if (User.IsInRole("Donor"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutDonor.cshtml";
             }
             return View(bloodDonate);
         }
@@ -198,6 +201,7 @@ namespace BBMS.Controllers
         // POST: BloodDonate/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "SuperAdmin,DonorAdmin,Donor")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var bloodDonate = await _context.BloodDonate.FindAsync(id);
@@ -207,7 +211,14 @@ namespace BBMS.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            if(User.IsInRole("SuperAdmin") || User.IsInRole("DonorAdmin"))
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return RedirectToAction(nameof(DonateLogs));
+            }
         }
 
         private bool BloodDonateExists(int id)
@@ -255,6 +266,55 @@ namespace BBMS.Controllers
                 ViewData["AccountId"] = accountId.ToString();
             }
             return View(bloodDonations);
+        }
+
+        [Authorize(Roles = "Donor")]
+        public async Task<IActionResult> UpdateDetails(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var bloodDonate = await _context.BloodDonate.FindAsync(id);
+            if (bloodDonate == null)
+            {
+                return NotFound();
+            }
+            return View(bloodDonate);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Donor")]
+        public async Task<IActionResult> UpdateDetails(int id, [Bind("Id,Age,BloodType,UnitNo,Status,DonateDate,DonatePlace,DonorId")] BloodDonate bloodDonate)
+        {
+            if (id != bloodDonate.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(bloodDonate);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!BloodDonateExists(bloodDonate.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(DonateLogs));
+            }
+            return View(bloodDonate);
         }
     }
 }

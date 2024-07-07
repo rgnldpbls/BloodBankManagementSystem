@@ -5,14 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\blooddonatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\blooddonatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\donorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\donorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\views\\blooddonate\\pendingdonate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:views\\blooddonate\\pendingdonate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,37 +14,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DonorController.cs",
-              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\DonorController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DonorController.cs",
-              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\DonorController.cs",
-              "RelativeToolTip": "Controllers\\DonorController.cs",
-              "ViewState": "AQIAAJ8AAAAAAAAAAAAAAKwAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-07T14:03:56.485Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PendingDonate.cshtml",
-              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Views\\BloodDonate\\PendingDonate.cshtml",
-              "RelativeDocumentMoniker": "Views\\BloodDonate\\PendingDonate.cshtml",
-              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Views\\BloodDonate\\PendingDonate.cshtml",
-              "RelativeToolTip": "Views\\BloodDonate\\PendingDonate.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEIAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-07T13:26:11.18Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -62,7 +28,7 @@
               "RelativeDocumentMoniker": "Controllers\\BloodDonateController.cs",
               "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\BloodDonateController.cs",
               "RelativeToolTip": "Controllers\\BloodDonateController.cs",
-              "ViewState": "AQIAALcAAAAAAAAAAAAAAMEAAAANAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwBAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-07T04:35:34.088Z",
               "EditorCaption": ""
