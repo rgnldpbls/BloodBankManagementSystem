@@ -87,11 +87,11 @@ namespace BBMS.Controllers
                             var authProperties4 = new AuthenticationProperties();
                             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity4));
                             return RedirectToAction("Profile", "Admin", new { id = admin.Id.ToString() });
-                        case "RequestValidatorAdmin":
+                        case "ValidatorAdmin":
                             var claims5 = new List<Claim>
                             {
                                 new Claim(ClaimTypes.Name, admin.Username),
-                                new Claim(ClaimTypes.Role, "RequestValidatorAdmin"),
+                                new Claim(ClaimTypes.Role, "ValidatorAdmin"),
                                 new Claim("AccountId", admin.Id.ToString())
                             };
                             var claimsIdentity5 = new ClaimsIdentity(claims5, "Login");
@@ -268,7 +268,7 @@ namespace BBMS.Controllers
             return User.FindFirstValue("AccountId");
         }
 
-        [Authorize(Roles = "SuperAdmin,DonorAdmin,PhysicianAdmin,InventoryAdmin,RequestValidatorAdmin")]
+        [Authorize(Roles = "SuperAdmin,DonorAdmin,PhysicianAdmin,InventoryAdmin,ValidatorAdmin")]
         public async Task<IActionResult> Profile(string? id)
         {
             if (User.IsInRole("SuperAdmin"))
@@ -287,9 +287,9 @@ namespace BBMS.Controllers
             {
                 ViewData["Layout"] = "~/Views/Shared/_LayoutInventoryAdmin.cshtml";
             }
-            else if (User.IsInRole("RequestValidatorAdmin"))
+            else if (User.IsInRole("ValidatorAdmin"))
             {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutRequestV.cshtml";
+                ViewData["Layout"] = "~/Views/Shared/_LayoutValidator.cshtml";
             }
             var curUserId = GetUserId();
             if (id != curUserId)

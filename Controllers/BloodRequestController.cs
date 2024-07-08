@@ -40,7 +40,7 @@ namespace BBMS.Controllers
             {
                 ViewData["AccountId"] = accountId.ToString();
             }
-            var bloodBankDBContext = _context.BloodRequest.Include(b => b.Physician).Where(b => b.Status != "Pending");
+            var bloodBankDBContext = _context.BloodRequest.Include(b => b.Physician).Where(b => b.Status == "Accepted" || b.Status == "Rejected");
             return View(await bloodBankDBContext.ToListAsync());
         }
 
@@ -94,7 +94,7 @@ namespace BBMS.Controllers
         }
 
         // GET: BloodRequest/Edit/5
-        [Authorize(Roles = "SuperAdmin,PhysicianAdmin")]
+        [Authorize(Roles = "SuperAdmin,PhysicianAdmin,ValidatorAdmin,InventoryAdmin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (User.IsInRole("SuperAdmin"))
@@ -104,6 +104,12 @@ namespace BBMS.Controllers
             else if (User.IsInRole("PhysicianAdmin"))
             {
                 ViewData["Layout"] = "~/Views/Shared/_LayoutPhysicianAdmin.cshtml";
+            }else if (User.IsInRole("ValidatorAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutValidator.cshtml";
+            }else if (User.IsInRole("InventoryAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutInventoryAdmin.cshtml";
             }
             if (id == null)
             {
@@ -123,7 +129,7 @@ namespace BBMS.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "SuperAdmin,PhysicianAdmin")]
+        [Authorize(Roles = "SuperAdmin,PhysicianAdmin,ValidatorAdmin,InventoryAdmin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,PatientName,PatientAge,RequestInfo,PatientHospital,BloodType,UnitNo,Status,RequestDate,PhysicianId")] BloodRequest bloodRequest)
         {
             if (id != bloodRequest.Id)
@@ -149,7 +155,14 @@ namespace BBMS.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                if (User.IsInRole("SuperAdmin") || User.IsInRole("PhysicianAdmin"))
+                {
+                    return RedirectToAction(nameof(PendingRequest));
+                } else if (User.IsInRole("ValidatorAdmin")) {
+                    return RedirectToAction(nameof(ValidateRequest));
+                } else if (User.IsInRole("InventoryAdmin")) {
+                    return RedirectToAction(nameof(Index));
+                }
             }
             return View(bloodRequest);
         }
@@ -226,26 +239,6 @@ namespace BBMS.Controllers
             return View(await bloodBankDBContext.ToListAsync());
         }
 
-        [Authorize(Roles = "SuperAdmin,PhysicianAdmin")]
-        public async Task<IActionResult> PendingRequest()
-        {
-            if (User.IsInRole("SuperAdmin"))
-            {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
-            }
-            else if (User.IsInRole("PhysicianAdmin"))
-            {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutPhysicianAdmin.cshtml";
-            }
-            int? accountId = _accountService.GetAccountId();
-            if (accountId.HasValue)
-            {
-                ViewData["AccountId"] = accountId.ToString();
-            }
-            var bloodBankDBContext = _context.BloodRequest.Include(b => b.Physician).Where(b => b.Status == "Pending");
-            return View(await bloodBankDBContext.ToListAsync());
-        }
-
         [Authorize(Roles = "Physician")]
         public async Task<IActionResult> UpdateDetails(int? id)
         {
@@ -293,6 +286,50 @@ namespace BBMS.Controllers
                 return RedirectToAction(nameof(RequestLogs));
             }
             return View(bloodRequest);
+        }
+
+        [Authorize(Roles = "SuperAdmin,PhysicianAdmin")]
+        public async Task<IActionResult> PendingRequest()
+        {
+            if (User.IsInRole("SuperAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+            }
+            else if (User.IsInRole("PhysicianAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutPhysicianAdmin.cshtml";
+            }
+            int? accountId = _accountService.GetAccountId();
+            if (accountId.HasValue)
+            {
+                ViewData["AccountId"] = accountId.ToString();
+            }
+            var bloodBankDBContext = _context.BloodRequest.Include(b => b.Physician).Where(b => b.Status == "Pending");
+            return View(await bloodBankDBContext.ToListAsync());
+        }
+
+        [Authorize(Roles = "ValidatorAdmin")]
+        public async Task<IActionResult> ValidateRequest()
+        {
+            int? accountId = _accountService.GetAccountId();
+            if (accountId.HasValue)
+            {
+                ViewData["AccountId"] = accountId.ToString();
+            }
+            var bloodBankDBContext = _context.BloodRequest.Include(b => b.Physician).Where(b => b.Status == "Pre-Approved");
+            return View(await bloodBankDBContext.ToListAsync());
+        }
+
+        [Authorize(Roles = "InventoryAdmin")]
+        public async Task<IActionResult> ApproveRequest()
+        {
+            int? accountId = _accountService.GetAccountId();
+            if (accountId.HasValue)
+            {
+                ViewData["AccountId"] = accountId.ToString();
+            }
+            var bloodBankDBContext = _context.BloodRequest.Include(b => b.Physician).Where(b => b.Status == "Approved");
+            return View(await bloodBankDBContext.ToListAsync());
         }
     }
 }

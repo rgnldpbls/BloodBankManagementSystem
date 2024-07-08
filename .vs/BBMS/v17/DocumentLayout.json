@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\bloodrequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\bloodrequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\blooddonatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\blooddonatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -23,12 +27,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BloodRequestController.cs",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\BloodRequestController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BloodRequestController.cs",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\BloodRequestController.cs",
+              "RelativeToolTip": "Controllers\\BloodRequestController.cs",
+              "ViewState": "AQIAADcBAAAAAAAAAAAswD4BAABeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T07:11:33.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "BloodDonateController.cs",
               "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\BloodDonateController.cs",
               "RelativeDocumentMoniker": "Controllers\\BloodDonateController.cs",
               "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\BloodDonateController.cs",
               "RelativeToolTip": "Controllers\\BloodDonateController.cs",
-              "ViewState": "AQIAACYBAAAAAAAAAADwvzMBAAAqAAAA",
+              "ViewState": "AQIAAJgAAAAAAAAAAAAAAGIAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-07T04:35:34.088Z",
               "EditorCaption": ""

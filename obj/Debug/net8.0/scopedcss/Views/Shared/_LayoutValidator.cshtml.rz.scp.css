@@ -1,15 +1,15 @@
-body[b-m7tuvavroe] {
+body[b-dzd2prkby6] {
     background-color: #fbfbfb;
 }
 
 @media (min-width: 991.98px) {
-    main[b-m7tuvavroe] {
+    main[b-dzd2prkby6] {
         padding-left: 240px;
     }
 }
 
 /* Sidebar */
-.sidebar[b-m7tuvavroe] {
+.sidebar[b-dzd2prkby6] {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -21,17 +21,17 @@ body[b-m7tuvavroe] {
 }
 
 @media (max-width: 991.98px) {
-    .sidebar[b-m7tuvavroe] {
+    .sidebar[b-dzd2prkby6] {
         width: 100%;
     }
 }
 
-.sidebar .active[b-m7tuvavroe] {
+.sidebar .active[b-dzd2prkby6] {
     border-radius: 5px;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
 }
 
-.sidebar-sticky[b-m7tuvavroe] {
+.sidebar-sticky[b-dzd2prkby6] {
     position: relative;
     top: 0;
     height: calc(100vh - 48px);

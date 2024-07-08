@@ -21,7 +21,7 @@
                         </div>
                         <div class="col-md-6">
                             <label asp-for="LicenseNo" class="small mb-1"></label>
-                            <input asp-for="LicenseNo" class="form-control" />
+                            <input asp-for="LicenseNo" class="form-control" readonly/>
                             <span asp-validation-for="LicenseNo" class="text-danger"></span>
                         </div>
                     </div>
@@ -44,17 +44,17 @@
                     </div>
                     <div class="mb-3">
                         <label asp-for="Email" class="small mb-1"></label>
-                        <input asp-for="Email" class="form-control" type="email" />
+                        <input asp-for="Email" class="form-control" type="email" readonly/>
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="Password" class="small mb-1"></label>
-                        <input asp-for="Password" class="form-control" type="password">
+                        <input asp-for="Password" class="form-control" type="password" />
                         <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="DateCreated" class="small mb-1"></label>
-                        <input asp-for="DateCreated" class="form-control" type="date">
+                        <input asp-for="DateCreated" class="form-control" type="date" readonly/>
                         <span asp-validation-for="DateCreated" class="text-danger"></span>
                     </div>
                     <div class="mb-3">

@@ -133,6 +133,7 @@ namespace BBMS.Controllers
             {
                 ViewData["Layout"] = "~/Views/Shared/_Layout2.cshtml"; ;
             }
+            ViewBag.DateNow = DateOnly.FromDateTime(DateTime.Now);
             return View();
         }
 
@@ -147,7 +148,6 @@ namespace BBMS.Controllers
             if (ModelState.IsValid)
             {
                 physician.Password = PasswordHelper.HashPassword(physician.Password);
-                physician.DateCreated = DateOnly.FromDateTime(DateTime.Now);
                 _context.Add(physician);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -198,7 +198,6 @@ namespace BBMS.Controllers
                 try
                 {
                     physician.Password = PasswordHelper.HashPassword(physician.Password);
-                    physician.DateCreated = physician.DateCreated;
                     _context.Update(physician);
                     await _context.SaveChangesAsync();
                 }

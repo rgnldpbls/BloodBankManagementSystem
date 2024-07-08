@@ -33,15 +33,18 @@
                                             @Html.DisplayNameFor(model => model.UnitNo)
                                         </th>
                                         <th scope="col">
-                                            @Html.DisplayNameFor(model => model.Status)
-                                        </th>
-                                        <th scope="col">
                                             @Html.DisplayNameFor(model => model.DonateDate)
                                         </th>
                                         <th scope="col">
                                             @Html.DisplayNameFor(model => model.DonatePlace)
                                         </th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">
+                                            @Html.DisplayNameFor(model => model.Status)
+                                        </th>
+                                        <th scope="col">
+                                            Remarks
+                                        </th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,21 +61,55 @@
                                                 @Html.DisplayFor(modelItem => item.UnitNo)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.Status)
-                                            </td>
-                                            <td>
                                                 @Html.DisplayFor(modelItem => item.DonateDate)
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.DonatePlace)
                                             </td>
                                             <td>
-                                                <a asp-action="UpdateDetails" asp-route-id="@item.Id" type="button" class="btn btn-success btn-sm px-2">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </a>
-                                                <a asp-action="Delete" asp-route-id="@item.Id" type="button" class="btn btn-danger btn-sm px-2">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </a>
+                                                @Html.DisplayFor(modelItem => item.Status)
+                                            </td>
+                                            <td>
+                                                @if (item.Status.ToString() == "Pending")
+                                                {
+                                                    <span>
+                                                        Your donated blood is still pending for pre-approval...
+                                                    </span>
+                                                }
+                                                else if (item.Status.ToString() == "Pre-Approved")
+                                                {
+                                                    <span>
+                                                        Your donated blood is examining for approval...
+                                                    </span>
+                                                }
+                                                else if (item.Status.ToString() == "Approved")
+                                                {
+                                                    <span>
+                                                        Your donated blood is still validating...
+                                                    </span>
+                                                }
+                                                else if (item.Status.ToString() == "Accepted")
+                                                {
+                                                    <span>
+                                                        Your donated blood is accepteed. Thank you for your blood donation.
+                                                    </span>
+                                                }else if(item.Status.ToString() == "Rejected")
+                                                {
+                                                    <span>
+                                                        Your donated blood is rejected. Please contact the admin for more details.
+                                                    </span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if(item.Status.ToString() == "Pending")
+                                                {
+                                                    <a asp-action="UpdateDetails" asp-route-id="@item.Id" type="button" class="btn btn-success btn-sm px-2">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </a>
+                                                    <a asp-action="Delete" asp-route-id="@item.Id" type="button" class="btn btn-danger btn-sm px-2">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </a>
+                                                }
                                             </td>
                                         </tr>
                                     }

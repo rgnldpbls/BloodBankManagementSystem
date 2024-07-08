@@ -1,7 +1,7 @@
 ﻿@model BBMS.Models.BloodRequest
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Change Status";
     Layout = ViewData["Layout"]?.ToString();
 }
 
@@ -14,13 +14,36 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="Id" />
                      <div class="col-md-6">
-                        <label asp-for="Status" class="small mb-1"></label>
-                        <select asp-for="Status" data-mdb-input-init class="form-control">
-                            <option value="" disabled>-- Select an option --</option>
-                            <option value="Pending">PENDING</option>
-                            <option value="Accepted">ACCEPTED</option>
-                            <option value="Rejected">REJECTED</option>
-                        </select>
+                        @if (User.IsInRole("SuperAdmin,PhysicianAdmin"))
+                        {
+                            <label asp-for="Status" class="small mb-1"></label>
+                            <select asp-for="Status" data-mdb-input-init class="form-control">
+                                <option value="" disabled>-- Select an option --</option>
+                                <option value="Pending">PENDING</option>
+                                <option value="Pre-Approved">PRE-APPROVED</option>
+                                <option value="Rejected">REJECTED</option>
+                            </select>
+                        }
+                        else if (User.IsInRole("ValidatorAdmin"))
+                        {
+                            <label asp-for="Status" class="small mb-1"></label>
+                            <select asp-for="Status" data-mdb-input-init class="form-control">
+                                <option value="" disabled>-- Select an option --</option>
+                                <option value="Pre-Approved">PRE-APPROVED</option>
+                                <option value="Approved">APPROVED</option>
+                                <option value="Rejected">REJECTED</option>
+                            </select>
+                        }
+                        else if (User.IsInRole("InventoryAdmin"))
+                        {
+                            <label asp-for="Status" class="small mb-1"></label>
+                            <select asp-for="Status" data-mdb-input-init class="form-control">
+                                <option value="" disabled>-- Select an option --</option>
+                                <option value="Approved">APPROVED</option>
+                                <option value="Accepted">ACCEPTED</option>
+                                <option value="Rejected">REJECTED</option>
+                            </select>
+                        }
                     </div>
                     <div class="row gx-3 mb-3">
                         <div class="col-md-6">
@@ -69,8 +92,7 @@
                         <span asp-validation-for="PhysicianId" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <input type="submit" value="Save" class="btn btn-primary" /> |
-                        <a asp-action="PendingRequest">Back to List</a>
+                        <input type="submit" value="Save" class="btn btn-primary" />
                     </div>
                 </form>
             </div>

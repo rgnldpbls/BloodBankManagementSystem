@@ -52,7 +52,7 @@ namespace BBMS.Controllers
                 DonatePlace = b.DonatePlace,
                 DonorId = b.DonorId,
                 DonorName = b.Donor.Name
-            }).Where(b => b.Status != "Pending").ToListAsync();
+            }).Where(b => b.Status == "Accepted" || b.Status == "Rejected").ToListAsync();
             return View(bloodDonations);
         }
 
@@ -106,7 +106,7 @@ namespace BBMS.Controllers
         }
 
         // GET: BloodDonate/Edit/5
-        [Authorize(Roles = "SuperAdmin,DonorAdmin")]
+        [Authorize(Roles = "SuperAdmin,DonorAdmin,ValidatorAdmin,InventoryAdmin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (User.IsInRole("SuperAdmin"))
@@ -116,6 +116,13 @@ namespace BBMS.Controllers
             else if (User.IsInRole("DonorAdmin"))
             {
                 ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
+            }
+            else if (User.IsInRole("ValidatorAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutValidator.cshtml";
+            }else if (User.IsInRole("InventoryAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutInventoryAdmin.cshtml";
             }
             if (id == null)
             {
@@ -135,7 +142,7 @@ namespace BBMS.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "SuperAdmin,DonorAdmin")]
+        [Authorize(Roles = "SuperAdmin,DonorAdmin,ValidatorAdmin,InventoryAdmin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Age,BloodType,UnitNo,Status,DonateDate,DonatePlace,DonorId")] BloodDonate bloodDonate)
         {
             if (id != bloodDonate.Id)
@@ -161,13 +168,22 @@ namespace BBMS.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                if(User.IsInRole("SuperAdmin") || User.IsInRole("DonorAdmin"))
+                {
+                    return RedirectToAction(nameof(PendingDonate));
+                }else if (User.IsInRole("ValidatorAdmin"))
+                {
+                    return RedirectToAction(nameof(ValidateDonate));
+                }else if (User.IsInRole("InventoryAdmin"))
+                {
+                    return RedirectToAction(nameof(ApproveDonate));
+                }
             }
             return View(bloodDonate);
         }
 
         // GET: BloodDonate/Delete/5
-        [Authorize(Roles = "SuperAdmin,DonorAdmin,Donor")]
+        [Authorize(Roles = "SuperAdmin,Donor")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (User.IsInRole("SuperAdmin"))
@@ -237,37 +253,6 @@ namespace BBMS.Controllers
             return View(await bloodBankDBContext.ToListAsync());
         }
 
-        [Authorize(Roles = "SuperAdmin,DonorAdmin")]
-        public async Task<IActionResult> PendingDonate()
-        {
-            if (User.IsInRole("SuperAdmin"))
-            {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
-            }
-            else if (User.IsInRole("DonorAdmin"))
-            {
-                ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
-            }
-            int? accountId = _accountService.GetAccountId();
-            if (accountId.HasValue)
-            {
-                ViewData["AccountId"] = accountId.ToString();
-            }
-            var bloodDonations = await _context.BloodDonate.Include(b => b.Donor).Select(b => new BloodDonateIndexVM
-            {
-                Id = b.Id,
-                Age = b.Age,
-                BloodType = b.BloodType,
-                UnitNo = b.UnitNo,
-                Status = b.Status,
-                DonateDate = b.DonateDate,
-                DonatePlace = b.DonatePlace,
-                DonorId = b.DonorId,
-                DonorName = b.Donor.Name
-            }).Where(b => b.Status == "Pending").ToListAsync();
-            return View(bloodDonations);
-        }
-
         [Authorize(Roles = "Donor")]
         public async Task<IActionResult> UpdateDetails(int? id)
         {
@@ -315,6 +300,83 @@ namespace BBMS.Controllers
                 return RedirectToAction(nameof(DonateLogs));
             }
             return View(bloodDonate);
+        }
+
+        [Authorize(Roles = "SuperAdmin,DonorAdmin")]
+        public async Task<IActionResult> PendingDonate()
+        {
+            if (User.IsInRole("SuperAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+            }
+            else if (User.IsInRole("DonorAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutDonorAdmin.cshtml";
+            }
+            int? accountId = _accountService.GetAccountId();
+            if (accountId.HasValue)
+            {
+                ViewData["AccountId"] = accountId.ToString();
+            }
+            var bloodDonations = await _context.BloodDonate.Include(b => b.Donor).Select(b => new BloodDonateIndexVM
+            {
+                Id = b.Id,
+                Age = b.Age,
+                BloodType = b.BloodType,
+                UnitNo = b.UnitNo,
+                Status = b.Status,
+                DonateDate = b.DonateDate,
+                DonatePlace = b.DonatePlace,
+                DonorId = b.DonorId,
+                DonorName = b.Donor.Name
+            }).Where(b => b.Status == "Pending").ToListAsync();
+            return View(bloodDonations);
+        }
+
+        [Authorize(Roles = "ValidatorAdmin")]
+        public async Task<IActionResult> ValidateDonate()
+        {
+            int? accountId = _accountService.GetAccountId();
+            if (accountId.HasValue)
+            {
+                ViewData["AccountId"] = accountId.ToString();
+            }
+            var bloodDonations = await _context.BloodDonate.Include(b => b.Donor).Select(b => new BloodDonateIndexVM
+            {
+                Id = b.Id,
+                Age = b.Age,
+                BloodType = b.BloodType,
+                UnitNo = b.UnitNo,
+                Status = b.Status,
+                DonateDate = b.DonateDate,
+                DonatePlace = b.DonatePlace,
+                DonorId = b.DonorId,
+                DonorName = b.Donor.Name
+            }).Where(b => b.Status == "Pre-Approved").ToListAsync();
+            return View(bloodDonations);
+        }
+
+        [Authorize(Roles = "InventoryAdmin")]
+        public async Task<IActionResult> ApproveDonate()
+        {
+            int? accountId = _accountService.GetAccountId();
+            if (accountId.HasValue)
+            {
+                ViewData["AccountId"] = accountId.ToString();
+            }
+            var bloodDonations = await _context.BloodDonate.Include(b => b.Donor).Select(b => new BloodDonateIndexVM
+            {
+                Id = b.Id,
+                Age = b.Age,
+                BloodType = b.BloodType,
+                UnitNo = b.UnitNo,
+                Status = b.Status,
+                DonateDate = b.DonateDate,
+                DonatePlace = b.DonatePlace,
+                DonorId = b.DonorId,
+                DonorName = b.Donor.Name
+            }).Where(b => b.Status == "Approved").ToListAsync();
+            return View(bloodDonations);
         }
     }
 }

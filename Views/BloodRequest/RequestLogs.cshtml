@@ -26,12 +26,12 @@
                                         <th scope="col">
                                             @Html.DisplayNameFor(model => model.PatientName)
                                         </th>
-                                        <th scope="col">
+                                        @* <th scope="col">
                                             @Html.DisplayNameFor(model => model.PatientAge)
                                         </th>
                                         <th scope="col">
                                             @Html.DisplayNameFor(model => model.PatientHospital)
-                                        </th>
+                                        </th> *@
                                         <th scope="col">
                                             @Html.DisplayNameFor(model => model.BloodType)
                                         </th>
@@ -39,12 +39,13 @@
                                             @Html.DisplayNameFor(model => model.UnitNo)
                                         </th>
                                         <th scope="col">
-                                            @Html.DisplayNameFor(model => model.Status)
-                                        </th>
-                                        <th scope="col">
                                             @Html.DisplayNameFor(model => model.RequestDate)
                                         </th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">
+                                            @Html.DisplayNameFor(model => model.Status)
+                                        </th>
+                                        <th scope="col">Remarks</th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,12 +55,12 @@
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.PatientName)
                                             </td>
-                                            <td>
+@*                                             <td>
                                                 @Html.DisplayFor(modelItem => item.PatientAge)
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.PatientHospital)
-                                            </td>
+                                            </td> *@
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.BloodType)
                                             </td>
@@ -67,18 +68,53 @@
                                                 @Html.DisplayFor(modelItem => item.UnitNo)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.Status)
-                                            </td>
-                                            <td>
                                                 @Html.DisplayFor(modelItem => item.RequestDate)
                                             </td>
                                             <td>
-                                                <a asp-action="UpdateDetails" asp-route-id="@item.Id" type="button" class="btn btn-success btn-sm px-2">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </a>
-                                                <a asp-action="Delete" asp-route-id="@item.Id" type="button" class="btn btn-danger btn-sm px-2">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </a>
+                                                @Html.DisplayFor(modelItem => item.Status)
+                                            </td>
+                                            <td>
+                                                @if (item.Status.ToString() == "Pending")
+                                                {
+                                                    <span>
+                                                        Your blood request is still pending for pre-approval...
+                                                    </span>
+                                                }
+                                                else if (item.Status.ToString() == "Pre-Approved")
+                                                {
+                                                    <span>
+                                                        Your blood request is waiting for approval...
+                                                    </span>
+                                                }
+                                                else if (item.Status.ToString() == "Approved")
+                                                {
+                                                    <span>
+                                                        Your blood request is still validating...
+                                                    </span>
+                                                }
+                                                else if (item.Status.ToString() == "Accepted")
+                                                {
+                                                    <span>
+                                                        Your blood request is accepteed. Thank you.
+                                                    </span>
+                                                }
+                                                else if (item.Status.ToString() == "Rejected")
+                                                {
+                                                    <span>
+                                                        Your blood request is rejected. Please contact the admin for more details.
+                                                    </span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if(item.Status.ToString() == "Pending")
+                                                {
+                                                    <a asp-action="UpdateDetails" asp-route-id="@item.Id" type="button" class="btn btn-success btn-sm px-2">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </a>
+                                                    <a asp-action="Delete" asp-route-id="@item.Id" type="button" class="btn btn-danger btn-sm px-2">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </a>
+                                                }
                                             </td>
                                         </tr>
                                     }
