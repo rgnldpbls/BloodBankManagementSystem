@@ -8,26 +8,43 @@ using Microsoft.EntityFrameworkCore;
 using BBMS.Data;
 using BBMS.Models;
 using Microsoft.AspNetCore.Authorization;
+using BBMS.Services;
 
 namespace BBMS.Controllers
 {
-    [Authorize(Roles = "SuperAdmin")]
     public class InventoriesController : Controller
     {
         private readonly BloodBankDBContext _context;
+        private readonly AccountService _accountService;
 
-        public InventoriesController(BloodBankDBContext context)
+        public InventoriesController(BloodBankDBContext context, AccountService accountService)
         {
             _context = context;
+            _accountService = accountService;
         }
 
         // GET: Inventories
+        [Authorize(Roles = "SuperAdmin,InventoryAdmin")]
         public async Task<IActionResult> Index()
         {
+            if (User.IsInRole("SuperAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+            }
+            else if (User.IsInRole("InventoryAdmin"))
+            {
+                ViewData["Layout"] = "~/Views/Shared/_LayoutInventoryAdmin.cshtml";
+            }
+            int? accountId = _accountService.GetAccountId();
+            if (accountId.HasValue)
+            {
+                ViewData["AccountId"] = accountId.ToString();
+            }
             return View(await _context.Inventory.ToListAsync());
         }
 
         // GET: Inventories/Details/5
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,6 +63,7 @@ namespace BBMS.Controllers
         }
 
         // GET: Inventories/Create
+        [Authorize(Roles = "SuperAdmin")]
         public IActionResult Create()
         {
             return View();
@@ -56,6 +74,7 @@ namespace BBMS.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Create([Bind("Id,BloodType,Quantity,ExpiryDate,LastUpdated")] Inventory inventory)
         {
             if (ModelState.IsValid)
@@ -68,6 +87,7 @@ namespace BBMS.Controllers
         }
 
         // GET: Inventories/Edit/5
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -88,6 +108,7 @@ namespace BBMS.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,BloodType,Quantity,ExpiryDate,LastUpdated")] Inventory inventory)
         {
             if (id != inventory.Id)
@@ -119,6 +140,7 @@ namespace BBMS.Controllers
         }
 
         // GET: Inventories/Delete/5
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -139,6 +161,7 @@ namespace BBMS.Controllers
         // POST: Inventories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var inventory = await _context.Inventory.FindAsync(id);

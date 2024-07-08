@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\views\\inventories\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:views\\inventories\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\inventoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\inventoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\blooddonatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\blooddonatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\bloodrequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\bloodrequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,23 +18,27 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{26341fe2-71dd-46fd-bb1b-2e51a92a0d64}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "InventoryService.cs",
-              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Services\\InventoryService.cs",
-              "RelativeDocumentMoniker": "Services\\InventoryService.cs",
-              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Services\\InventoryService.cs",
-              "RelativeToolTip": "Services\\InventoryService.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAAAFYAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-08T15:53:16.545Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Views\\Inventories\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Inventories\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Views\\Inventories\\Index.cshtml",
+              "RelativeToolTip": "Views\\Inventories\\Index.cshtml",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAAAEAAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-08T16:28:44.388Z",
               "EditorCaption": ""
             },
             {
@@ -53,34 +49,10 @@
               "RelativeDocumentMoniker": "Controllers\\InventoriesController.cs",
               "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\InventoriesController.cs",
               "RelativeToolTip": "Controllers\\InventoriesController.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAAACoAAAANAAAA",
+              "ViewState": "AQIAACIAAAAAAAAAAAAqwDoAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-08T14:56:15.035Z",
+              "WhenOpened": "2024-07-08T16:27:03.795Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BloodRequestController.cs",
-              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\BloodRequestController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BloodRequestController.cs",
-              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\BloodRequestController.cs",
-              "RelativeToolTip": "Controllers\\BloodRequestController.cs",
-              "ViewState": "AQIAAJIAAAAAAAAAAAAAAJIAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-08T07:11:33.53Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BloodDonateController.cs",
-              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\BloodDonateController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BloodDonateController.cs",
-              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\BloodDonateController.cs",
-              "RelativeToolTip": "Controllers\\BloodDonateController.cs",
-              "ViewState": "AQIAAMkAAAAAAAAAAAAAALcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-07T04:35:34.088Z"
             }
           ]
         }
