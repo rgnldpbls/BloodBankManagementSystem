@@ -11,6 +11,7 @@ builder.Services.AddDbContext<BloodBankDBContext>(options =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<AccountService>();
+builder.Services.AddScoped<InventoryService>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
 {

@@ -14,7 +14,7 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="Id" />
                     <div class="col-md-6">
-                        @if (User.IsInRole("SuperAdmin,DonorAdmin"))
+                        @if (User.IsInRole("SuperAdmin") || User.IsInRole("DonorAdmin"))
                         {
                             <label asp-for="Status" class="small mb-1"></label>
                             <select asp-for="Status" data-mdb-input-init class="form-control">

@@ -17,11 +17,13 @@ namespace BBMS.Controllers
     {
         private readonly BloodBankDBContext _context;
         private readonly AccountService _accountService;
+        private readonly InventoryService _inventoryService;
 
-        public BloodDonateController(BloodBankDBContext context, AccountService accountService)
+        public BloodDonateController(BloodBankDBContext context, AccountService accountService, InventoryService inventoryService)
         {
             _context = context;
             _accountService = accountService;
+            _inventoryService = inventoryService;
         }
 
         // GET: BloodDonate
@@ -156,6 +158,7 @@ namespace BBMS.Controllers
                 {
                     _context.Update(bloodDonate);
                     await _context.SaveChangesAsync();
+                    await _inventoryService.AcceptBloodDonationAsync(id);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -168,14 +171,11 @@ namespace BBMS.Controllers
                         throw;
                     }
                 }
-                if(User.IsInRole("SuperAdmin") || User.IsInRole("DonorAdmin"))
-                {
+                if(User.IsInRole("SuperAdmin") || User.IsInRole("DonorAdmin")){
                     return RedirectToAction(nameof(PendingDonate));
-                }else if (User.IsInRole("ValidatorAdmin"))
-                {
+                }else if (User.IsInRole("ValidatorAdmin")){
                     return RedirectToAction(nameof(ValidateDonate));
-                }else if (User.IsInRole("InventoryAdmin"))
-                {
+                }else if (User.IsInRole("InventoryAdmin")){
                     return RedirectToAction(nameof(ApproveDonate));
                 }
             }

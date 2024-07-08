@@ -18,5 +18,6 @@ namespace BBMS.Data
         public DbSet<Physician> Physician { get; set; }
         public DbSet<BloodDonate> BloodDonate { get; set; }
         public DbSet<BloodRequest> BloodRequest { get; set; }
+        public DbSet<Inventory> Inventory { get; set; }
     }
 }
