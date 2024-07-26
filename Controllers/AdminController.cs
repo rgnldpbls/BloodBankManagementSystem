@@ -119,10 +119,20 @@ namespace BBMS.Controllers
 
         [Authorize(Roles = "SuperAdmin")]
         // GET: Admin
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 4)
         {
             ViewData["AccountId"] = GetUserId();
-            return View(await _context.Admins.ToListAsync());
+            var totalItems = await _context.Admins.CountAsync();
+            var items = await _context.Admins.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            var viewModel = new PaginatedViewModel<Admin>
+            {
+                Items = items,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalItems = totalItems
+            };
+            return View(viewModel);
         }
 
         [Authorize(Roles = "SuperAdmin")]

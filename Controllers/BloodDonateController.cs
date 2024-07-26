@@ -28,7 +28,7 @@ namespace BBMS.Controllers
 
         // GET: BloodDonate
         [Authorize(Roles = "SuperAdmin,DonorAdmin")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 4)
         {
             if (User.IsInRole("SuperAdmin"))
             {
@@ -43,19 +43,32 @@ namespace BBMS.Controllers
             {
                 ViewData["AccountId"] = accountId.ToString();
             }
-            var bloodDonations = await _context.BloodDonate.Include(b => b.Donor).Select(b => new BloodDonateIndexVM
+            var bloodDonations = _context.BloodDonate.Include(b => b.Donor)
+                .Where(b => b.Status == "Accepted" || b.Status == "Rejected")
+                .Select(b => new BloodDonateIndexVM
+                {
+                    Id = b.Id,
+                    Age = b.Age,
+                    BloodType = b.BloodType,
+                    UnitNo = b.UnitNo,
+                    Status = b.Status,
+                    DonateDate = b.DonateDate,
+                    DonatePlace = b.DonatePlace,
+                    DonorId = b.DonorId,
+                    DonorName = b.Donor.Name
+                });
+            var totalItems = await bloodDonations.CountAsync();
+            var items = await bloodDonations.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            var viewModel = new PaginatedViewModel<BloodDonateIndexVM>
             {
-                Id = b.Id,
-                Age = b.Age,
-                BloodType = b.BloodType,
-                UnitNo = b.UnitNo,
-                Status = b.Status,
-                DonateDate = b.DonateDate,
-                DonatePlace = b.DonatePlace,
-                DonorId = b.DonorId,
-                DonorName = b.Donor.Name
-            }).Where(b => b.Status == "Accepted" || b.Status == "Rejected").ToListAsync();
-            return View(bloodDonations);
+                Items = items,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalItems = totalItems
+            };
+
+            return View(viewModel);
         }
 
         // GET: BloodDonate/Details/5
@@ -157,8 +170,8 @@ namespace BBMS.Controllers
                 try
                 {
                     _context.Update(bloodDonate);
-                    await _context.SaveChangesAsync();
                     await _inventoryService.AcceptBloodDonationAsync(id);
+                    await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -242,7 +255,7 @@ namespace BBMS.Controllers
         }
 
         [Authorize(Roles = "Donor")]
-        public async Task<IActionResult> DonateLogs()
+        public async Task<IActionResult> DonateLogs(int pageNumber = 1, int pageSize = 4)
         {
             int? accountId = _accountService.GetAccountId();
             if (accountId.HasValue)
@@ -250,7 +263,18 @@ namespace BBMS.Controllers
                 ViewData["AccountId"] = accountId.ToString();
             }
             var bloodBankDBContext = _context.BloodDonate.Include(b => b.Donor).Where(b => b.DonorId == accountId.Value);
-            return View(await bloodBankDBContext.ToListAsync());
+            var totalItems = await bloodBankDBContext.CountAsync();
+            var items = await bloodBankDBContext.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            var viewModel = new PaginatedViewModel<BloodDonate>
+            {
+                Items = items,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalItems = totalItems
+            };
+
+            return View(viewModel);
         }
 
         [Authorize(Roles = "Donor")]
@@ -303,7 +327,7 @@ namespace BBMS.Controllers
         }
 
         [Authorize(Roles = "SuperAdmin,DonorAdmin")]
-        public async Task<IActionResult> PendingDonate()
+        public async Task<IActionResult> PendingDonate(int pageNumber = 1, int pageSize = 4)
         {
             if (User.IsInRole("SuperAdmin"))
             {
@@ -318,65 +342,104 @@ namespace BBMS.Controllers
             {
                 ViewData["AccountId"] = accountId.ToString();
             }
-            var bloodDonations = await _context.BloodDonate.Include(b => b.Donor).Select(b => new BloodDonateIndexVM
+            var bloodDonations = _context.BloodDonate.Include(b => b.Donor)
+                .Where(b => b.Status == "Pending")
+                .Select(b => new BloodDonateIndexVM
+                {
+                    Id = b.Id,
+                    Age = b.Age,
+                    BloodType = b.BloodType,
+                    UnitNo = b.UnitNo,
+                    Status = b.Status,
+                    DonateDate = b.DonateDate,
+                    DonatePlace = b.DonatePlace,
+                    DonorId = b.DonorId,
+                    DonorName = b.Donor.Name
+                });
+            var totalItems = await bloodDonations.CountAsync();
+            var items = await bloodDonations.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            var viewModel = new PaginatedViewModel<BloodDonateIndexVM>
             {
-                Id = b.Id,
-                Age = b.Age,
-                BloodType = b.BloodType,
-                UnitNo = b.UnitNo,
-                Status = b.Status,
-                DonateDate = b.DonateDate,
-                DonatePlace = b.DonatePlace,
-                DonorId = b.DonorId,
-                DonorName = b.Donor.Name
-            }).Where(b => b.Status == "Pending").ToListAsync();
-            return View(bloodDonations);
+                Items = items,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalItems = totalItems
+            };
+
+            return View(viewModel);
         }
 
         [Authorize(Roles = "ValidatorAdmin")]
-        public async Task<IActionResult> ValidateDonate()
+        public async Task<IActionResult> ValidateDonate(int pageNumber = 1, int pageSize = 4)
         {
             int? accountId = _accountService.GetAccountId();
             if (accountId.HasValue)
             {
                 ViewData["AccountId"] = accountId.ToString();
             }
-            var bloodDonations = await _context.BloodDonate.Include(b => b.Donor).Select(b => new BloodDonateIndexVM
+            var bloodDonations = _context.BloodDonate.Include(b => b.Donor)
+                .Where(b => b.Status == "Pre-Approved")
+                .Select(b => new BloodDonateIndexVM
+                {
+                    Id = b.Id,
+                    Age = b.Age,
+                    BloodType = b.BloodType,
+                    UnitNo = b.UnitNo,
+                    Status = b.Status,
+                    DonateDate = b.DonateDate,
+                    DonatePlace = b.DonatePlace,
+                    DonorId = b.DonorId,
+                    DonorName = b.Donor.Name
+                });
+            var totalItems = await bloodDonations.CountAsync();
+            var items = await bloodDonations.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            var viewModel = new PaginatedViewModel<BloodDonateIndexVM>
             {
-                Id = b.Id,
-                Age = b.Age,
-                BloodType = b.BloodType,
-                UnitNo = b.UnitNo,
-                Status = b.Status,
-                DonateDate = b.DonateDate,
-                DonatePlace = b.DonatePlace,
-                DonorId = b.DonorId,
-                DonorName = b.Donor.Name
-            }).Where(b => b.Status == "Pre-Approved").ToListAsync();
-            return View(bloodDonations);
+                Items = items,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalItems = totalItems
+            };
+
+            return View(viewModel);
         }
 
         [Authorize(Roles = "InventoryAdmin")]
-        public async Task<IActionResult> ApproveDonate()
+        public async Task<IActionResult> ApproveDonate(int pageNumber = 1, int pageSize = 4)
         {
             int? accountId = _accountService.GetAccountId();
             if (accountId.HasValue)
             {
                 ViewData["AccountId"] = accountId.ToString();
             }
-            var bloodDonations = await _context.BloodDonate.Include(b => b.Donor).Select(b => new BloodDonateIndexVM
+            var bloodDonations = _context.BloodDonate.Include(b => b.Donor)
+                .Where(b => b.Status == "Approved")
+                .Select(b => new BloodDonateIndexVM
+                {
+                    Id = b.Id,
+                    Age = b.Age,
+                    BloodType = b.BloodType,
+                    UnitNo = b.UnitNo,
+                    Status = b.Status,
+                    DonateDate = b.DonateDate,
+                    DonatePlace = b.DonatePlace,
+                    DonorId = b.DonorId,
+                    DonorName = b.Donor.Name
+                });
+            var totalItems = await bloodDonations.CountAsync();
+            var items = await bloodDonations.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            var viewModel = new PaginatedViewModel<BloodDonateIndexVM>
             {
-                Id = b.Id,
-                Age = b.Age,
-                BloodType = b.BloodType,
-                UnitNo = b.UnitNo,
-                Status = b.Status,
-                DonateDate = b.DonateDate,
-                DonatePlace = b.DonatePlace,
-                DonorId = b.DonorId,
-                DonorName = b.Donor.Name
-            }).Where(b => b.Status == "Approved").ToListAsync();
-            return View(bloodDonations);
+                Items = items,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalItems = totalItems
+            };
+
+            return View(viewModel);
         }
     }
 }

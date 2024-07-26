@@ -9,6 +9,7 @@ using BBMS.Data;
 using BBMS.Models;
 using Microsoft.AspNetCore.Authorization;
 using BBMS.Services;
+using BBMS.ViewModels;
 
 namespace BBMS.Controllers
 {
@@ -25,7 +26,7 @@ namespace BBMS.Controllers
 
         // GET: Inventories
         [Authorize(Roles = "SuperAdmin,InventoryAdmin")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 4)
         {
             if (User.IsInRole("SuperAdmin"))
             {
@@ -40,7 +41,18 @@ namespace BBMS.Controllers
             {
                 ViewData["AccountId"] = accountId.ToString();
             }
-            return View(await _context.Inventory.ToListAsync());
+            var totalItems = await _context.Inventory.CountAsync();
+            var items = await _context.Inventory.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            var viewModel = new PaginatedViewModel<Inventory>
+            {
+                Items = items,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalItems = totalItems
+            };
+
+            return View(viewModel);
         }
 
         // GET: Inventories/Details/5

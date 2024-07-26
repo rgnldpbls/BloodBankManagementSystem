@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BloodRequest>
+﻿@using BBMS.ViewModels;
+@model PaginatedViewModel<BloodRequest>
 
 @{
     ViewData["Title"] = "View Approved Request";
@@ -24,31 +25,31 @@
                                 <thead class="table-success">
                                     <tr>
                                         <th scope="col">
-                                            @Html.DisplayNameFor(model => model.PatientName)
+                                            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().PatientName)
                                         </th>
                                         <th scope="col">
-                                            @Html.DisplayNameFor(model => model.PatientAge)
+                                            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().PatientAge)
                                         </th>
                                         <th scope="col">
-                                            @Html.DisplayNameFor(model => model.PatientHospital)
+                                            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().PatientHospital)
                                         </th>
                                         <th scope="col">
-                                            @Html.DisplayNameFor(model => model.BloodType)
+                                            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().BloodType)
                                         </th>
                                         <th scope="col">
-                                            @Html.DisplayNameFor(model => model.UnitNo)
+                                            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().UnitNo)
                                         </th>
                                         <th scope="col">
-                                            @Html.DisplayNameFor(model => model.Status)
+                                            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Status)
                                         </th>
                                         <th scope="col">
-                                            @Html.DisplayNameFor(model => model.RequestDate)
+                                            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().RequestDate)
                                         </th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var item in Model)
+                                    @foreach (var item in Model.Items)
                                     {
                                         <tr>
                                             <td>
@@ -82,26 +83,29 @@
                                 </tbody>
                             </table>
                         </div>
-                        @* <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-end mt-3">
-                        <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        </a>
-                        </li>
-                        <li class="page-item active" aria-current="page">
-                        <span class="page-link">1</span>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        </a>
-                        </li>
-                        </ul>
-                        </nav> *@
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-end mt-3">
+                                <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")">
+                                    <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.PageNumber - 1)"
+                                       asp-route-pageSize="Model.PageSize" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                @for (int i = 1; i <= Model.TotalPages; i++)
+                                {
+                                    <li class="page-item @(Model.PageNumber == i ? "active" : "")">
+                                        <a class="page-link" asp-action="Index" asp-route-pageNumber="@i"
+                                           asp-route-pageSize="Model.PageSize">@i</a>
+                                    </li>
+                                }
+                                <li class="page-item @(Model.PageNumber == Model.TotalPages ? "disabled" : "")">
+                                    <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.PageNumber + 1)"
+                                       asp-route-pageSize="Model.PageSize" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>

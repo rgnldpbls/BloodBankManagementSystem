@@ -9,6 +9,8 @@ using BBMS.Data;
 using BBMS.Models;
 using BBMS.Services;
 using Microsoft.AspNetCore.Authorization;
+using BBMS.ViewModels;
+using System.Drawing.Printing;
 
 namespace BBMS.Controllers
 {
@@ -27,7 +29,7 @@ namespace BBMS.Controllers
 
         // GET: BloodRequest
         [Authorize(Roles = "SuperAdmin,PhysicianAdmin")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 4)
         {
             if (User.IsInRole("SuperAdmin"))
             {
@@ -43,7 +45,18 @@ namespace BBMS.Controllers
                 ViewData["AccountId"] = accountId.ToString();
             }
             var bloodBankDBContext = _context.BloodRequest.Include(b => b.Physician).Where(b => b.Status == "Accepted" || b.Status == "Rejected");
-            return View(await bloodBankDBContext.ToListAsync());
+            var totalItems = await bloodBankDBContext.CountAsync();
+            var items = await bloodBankDBContext.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            var viewModel = new PaginatedViewModel<BloodRequest>
+            {
+                Items = items,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalItems = totalItems
+            };
+
+            return View(viewModel);
         }
 
         // GET: BloodRequest/Details/5
@@ -144,8 +157,8 @@ namespace BBMS.Controllers
                 try
                 {
                     _context.Update(bloodRequest);
-                    await _context.SaveChangesAsync();
                     await _inventoryService.AcceptBloodRequestAsync(id);
+                    await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -232,7 +245,7 @@ namespace BBMS.Controllers
         }
 
         [Authorize(Roles = "Physician")]
-        public async Task<IActionResult> RequestLogs()
+        public async Task<IActionResult> RequestLogs(int pageNumber = 1, int pageSize = 4)
         {
             int? accountId = _accountService.GetAccountId();
             if (accountId.HasValue)
@@ -240,7 +253,18 @@ namespace BBMS.Controllers
                 ViewData["AccountId"] = accountId.ToString();
             }
             var bloodBankDBContext = _context.BloodRequest.Include(b => b.Physician).Where(b => b.PhysicianId == accountId.Value);
-            return View(await bloodBankDBContext.ToListAsync());
+            var totalItems = await bloodBankDBContext.CountAsync();
+            var items = await bloodBankDBContext.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            var viewModel = new PaginatedViewModel<BloodRequest>
+            {
+                Items = items,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalItems = totalItems
+            };
+
+            return View(viewModel);
         }
 
         [Authorize(Roles = "Physician")]
@@ -293,7 +317,7 @@ namespace BBMS.Controllers
         }
 
         [Authorize(Roles = "SuperAdmin,PhysicianAdmin")]
-        public async Task<IActionResult> PendingRequest()
+        public async Task<IActionResult> PendingRequest(int pageNumber = 1, int pageSize = 4)
         {
             if (User.IsInRole("SuperAdmin"))
             {
@@ -309,11 +333,22 @@ namespace BBMS.Controllers
                 ViewData["AccountId"] = accountId.ToString();
             }
             var bloodBankDBContext = _context.BloodRequest.Include(b => b.Physician).Where(b => b.Status == "Pending");
-            return View(await bloodBankDBContext.ToListAsync());
+            var totalItems = await bloodBankDBContext.CountAsync();
+            var items = await bloodBankDBContext.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            var viewModel = new PaginatedViewModel<BloodRequest>
+            {
+                Items = items,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalItems = totalItems
+            };
+
+            return View(viewModel);
         }
 
         [Authorize(Roles = "ValidatorAdmin")]
-        public async Task<IActionResult> ValidateRequest()
+        public async Task<IActionResult> ValidateRequest(int pageNumber = 1, int pageSize = 4)
         {
             int? accountId = _accountService.GetAccountId();
             if (accountId.HasValue)
@@ -321,11 +356,22 @@ namespace BBMS.Controllers
                 ViewData["AccountId"] = accountId.ToString();
             }
             var bloodBankDBContext = _context.BloodRequest.Include(b => b.Physician).Where(b => b.Status == "Pre-Approved");
-            return View(await bloodBankDBContext.ToListAsync());
+            var totalItems = await bloodBankDBContext.CountAsync();
+            var items = await bloodBankDBContext.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            var viewModel = new PaginatedViewModel<BloodRequest>
+            {
+                Items = items,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalItems = totalItems
+            };
+
+            return View(viewModel);
         }
 
         [Authorize(Roles = "InventoryAdmin")]
-        public async Task<IActionResult> ApproveRequest()
+        public async Task<IActionResult> ApproveRequest(int pageNumber = 1, int pageSize = 4)
         {
             int? accountId = _accountService.GetAccountId();
             if (accountId.HasValue)
@@ -333,7 +379,18 @@ namespace BBMS.Controllers
                 ViewData["AccountId"] = accountId.ToString();
             }
             var bloodBankDBContext = _context.BloodRequest.Include(b => b.Physician).Where(b => b.Status == "Approved");
-            return View(await bloodBankDBContext.ToListAsync());
+            var totalItems = await bloodBankDBContext.CountAsync();
+            var items = await bloodBankDBContext.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            var viewModel = new PaginatedViewModel<BloodRequest>
+            {
+                Items = items,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalItems = totalItems
+            };
+
+            return View(viewModel);
         }
     }
 }

@@ -72,7 +72,7 @@ namespace BBMS.Controllers
 
         // GET: Donor
         [Authorize(Roles = "SuperAdmin,DonorAdmin")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 4)
         {
             if (User.IsInRole("SuperAdmin"))
             {
@@ -87,7 +87,18 @@ namespace BBMS.Controllers
             {
                 ViewData["AccountId"] = accountId.ToString();
             }
-            return View(await _context.Donor.ToListAsync());
+            var totalItems = await _context.Donor.CountAsync();
+            var items = await _context.Donor.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            var viewModel = new PaginatedViewModel<Donor>
+            {
+                Items = items,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalItems = totalItems
+            };
+
+            return View(viewModel);
         }
 
         // GET: Donor/Details/5
