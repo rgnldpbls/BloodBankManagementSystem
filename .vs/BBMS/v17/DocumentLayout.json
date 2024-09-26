@@ -3,20 +3,76 @@
   "WorkspaceRootPath": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\inventoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\inventoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\views\\bloodrequest\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:views\\bloodrequest\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\bloodrequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\bloodrequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\views\\admin\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:views\\admin\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\models\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:models\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\views\\inventories\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:views\\inventories\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\views\\physician\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:views\\physician\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\physiciancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\physiciancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\donorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\donorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\views\\donor\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:views\\donor\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\blooddonatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\blooddonatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\donorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\donorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\inventoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\inventoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\views\\admin\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:views\\admin\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\models\\bloodrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:models\\bloodrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\models\\blooddonate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:models\\blooddonate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\models\\physician.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:models\\physician.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\models\\passwordhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:models\\passwordhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\models\\donor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:models\\donor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|c:\\users\\regienald pueblos\\source\\repos\\bbms\\controllers\\bloodrequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B38E0CF-62B1-4305-952B-81A53B2A2864}|BBMS.csproj|solutionrelative:controllers\\bloodrequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,54 +91,221 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "InventoriesController.cs",
-              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\InventoriesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\InventoriesController.cs",
-              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\InventoriesController.cs",
-              "RelativeToolTip": "Controllers\\InventoriesController.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAAACUAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T10:08:43.239Z",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Views\\BloodRequest\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\BloodRequest\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Views\\BloodRequest\\Edit.cshtml",
+              "RelativeToolTip": "Views\\BloodRequest\\Edit.cshtml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-22T08:21:25.375Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BloodRequestController.cs",
-              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\BloodRequestController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BloodRequestController.cs",
-              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\BloodRequestController.cs",
-              "RelativeToolTip": "Controllers\\BloodRequestController.cs",
-              "ViewState": "AQIAAPQAAAAAAAAAAAAAAAMBAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T09:16:39.183Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BloodDonateController.cs",
-              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\BloodDonateController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BloodDonateController.cs",
-              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\BloodDonateController.cs",
-              "RelativeToolTip": "Controllers\\BloodDonateController.cs",
-              "ViewState": "AQIAAP4AAAAAAAAAAAAAAFkBAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T08:43:30.617Z",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Views\\Admin\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Views\\Admin\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-22T08:21:18.324Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Models\\Admin.cs",
+              "RelativeDocumentMoniker": "Models\\Admin.cs",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Models\\Admin.cs",
+              "RelativeToolTip": "Models\\Admin.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T04:51:18.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Views\\Inventories\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Inventories\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Views\\Inventories\\Create.cshtml",
+              "RelativeToolTip": "Views\\Inventories\\Create.cshtml",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-16T04:50:59.497Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Views\\Physician\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Physician\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Views\\Physician\\Create.cshtml",
+              "RelativeToolTip": "Views\\Physician\\Create.cshtml",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-16T04:35:33.206Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PhysicianController.cs",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\PhysicianController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PhysicianController.cs",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\PhysicianController.cs",
+              "RelativeToolTip": "Controllers\\PhysicianController.cs",
+              "ViewState": "AQIAAIUAAAAAAAAAAADwvwAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T03:52:46.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Views\\Donor\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Donor\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Views\\Donor\\Create.cshtml",
+              "RelativeToolTip": "Views\\Donor\\Create.cshtml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-16T03:50:48.536Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Views\\Admin\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Views\\Admin\\Create.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Create.cshtml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-11T16:14:02.629Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "BloodRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Models\\BloodRequest.cs",
+              "RelativeDocumentMoniker": "Models\\BloodRequest.cs",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Models\\BloodRequest.cs",
+              "RelativeToolTip": "Models\\BloodRequest.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-08T08:00:01.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Donor.cs",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Models\\Donor.cs",
+              "RelativeDocumentMoniker": "Models\\Donor.cs",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Models\\Donor.cs",
+              "RelativeToolTip": "Models\\Donor.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-08T07:59:57.621Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Inventory.cs",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Models\\Inventory.cs",
+              "RelativeDocumentMoniker": "Models\\Inventory.cs",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Models\\Inventory.cs",
+              "RelativeToolTip": "Models\\Inventory.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-08T08:00:06.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "DonorController.cs",
               "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\DonorController.cs",
               "RelativeDocumentMoniker": "Controllers\\DonorController.cs",
               "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\DonorController.cs",
               "RelativeToolTip": "Controllers\\DonorController.cs",
-              "ViewState": "AQIAAEoAAAAAAAAAAAAAAGIAAAAOAAAA",
+              "ViewState": "AQIAAH0AAAAAAAAAAAAAAGIAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T07:23:19.294Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-09T07:23:19.294Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "BloodDonateController.cs",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\BloodDonateController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BloodDonateController.cs",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\BloodDonateController.cs",
+              "RelativeToolTip": "Controllers\\BloodDonateController.cs",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAIwFkBAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T08:43:30.617Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "InventoriesController.cs",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\InventoriesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\InventoriesController.cs",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\InventoriesController.cs",
+              "RelativeToolTip": "Controllers\\InventoriesController.cs",
+              "ViewState": "AQIAAE4AAAAAAAAAAAA1wC8AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T10:08:43.239Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PasswordHelper.cs",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Models\\PasswordHelper.cs",
+              "RelativeDocumentMoniker": "Models\\PasswordHelper.cs",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Models\\PasswordHelper.cs",
+              "RelativeToolTip": "Models\\PasswordHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-08T08:00:10.554Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Physician.cs",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Models\\Physician.cs",
+              "RelativeDocumentMoniker": "Models\\Physician.cs",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Models\\Physician.cs",
+              "RelativeToolTip": "Models\\Physician.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-08T08:00:11.953Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "BloodDonate.cs",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Models\\BloodDonate.cs",
+              "RelativeDocumentMoniker": "Models\\BloodDonate.cs",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Models\\BloodDonate.cs",
+              "RelativeToolTip": "Models\\BloodDonate.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-08T08:00:16.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "BloodRequestController.cs",
+              "DocumentMoniker": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\BloodRequestController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BloodRequestController.cs",
+              "ToolTip": "C:\\Users\\Regienald Pueblos\\source\\repos\\BBMS\\Controllers\\BloodRequestController.cs",
+              "RelativeToolTip": "Controllers\\BloodRequestController.cs",
+              "ViewState": "AQIAAPQAAAAAAAAAAAAuwAMBAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T09:16:39.183Z"
             }
           ]
         }
